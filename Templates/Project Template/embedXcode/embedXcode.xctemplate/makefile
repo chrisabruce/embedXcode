@@ -15,7 +15,7 @@
 # Typing = 0 takes none
 # Otherwise, all will be considered (default)
 
-# List Arduino/chipKIT/Wiring libraries here 
+# List Arduino/chipKIT/Wiring/Energia libraries here 
 #
 #APP_LIBS_LIST = Wire Wire/utility/Energia EEPROM Ethernet Ethernet/utility \
 	SPI Firmata LiquidCrystal Matrix Sprite SD SD/utility Servo SoftwareSerial Stepper 
