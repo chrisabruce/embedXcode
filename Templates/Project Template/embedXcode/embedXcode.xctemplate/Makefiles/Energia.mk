@@ -16,6 +16,7 @@
 # chipKIT specifics
 # ----------------------------------
 #
+PLATFORM          = Energia
 APPLICATION_PATH := /Applications/Energia.app/Contents/Resources/Java
 
 UPLOADER          = mspdebug

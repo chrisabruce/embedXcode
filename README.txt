@@ -19,8 +19,9 @@
 	https://github.com/rei-vilo/mpideXcode
 	
 
-embedXcode • Apr 16, 2012 release 9 • Code-sense reference defined by selected board
-mpideXcode • Apr 16, 2012 release 12 • Code-sense reference defined by selected board
+embedXcode • May 23, 2012 release 10 • LeafLabs Maple implementation
+mpideXcode • May 23, 2012 release 13 • LeafLabs Maple implementation
+Installation Guide • May 23, 2012 release 7 • LeafLabs Maple implementation
 
 
 Installation

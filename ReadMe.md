@@ -6,6 +6,8 @@
 *Embedded Computing Project on Xcode 4.3*
 
 
+Supported boards: Arduino, chipKIT, Wiring, LaunchPad and Maple
+
 
 © Rei VILO, 2010-2012
 ![IMG](http://i.creativecommons.org/l/by-nc-sa/3.0/nl/88x31.png) CC = BY NC SA 

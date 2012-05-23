@@ -1,23 +1,28 @@
 
 	embedXcode
 	----------------------------------
-	Embedded Computing Template on Xcode 4.3
-
-	mpideXcode
-	----------------------------------
-	Embedded Computing Project on Xcode 4.3
+	Embedded Computing on Xcode 4.2
 
 
 	© Rei VILO, 2010-2012
 	CC = BY NC SA
 
-
-	• Documentation
 	http://embedXcode.weebly.com/
 	
-	• GitHub repositories
-	https://github.com/rei-vilo/embedXcode
+	• GitHub repository
 	https://github.com/rei-vilo/mpideXcode
+	https://github.com/rei-vilo/embedXcode
+
+
+Boards
+----------------------------------
+
+Arduino		http://www.arduino.cc/
+chipKIT 	http://www.chipkit.org/wiki/
+LaunchPad	http://www.ti.com/launchpad
+Maple		http://leaflabs.com/
+Wiring		http://wiring.org.co/
+
 
 
 References
@@ -58,6 +63,10 @@ Apr 01, 2011 - Maik Schmidt
 	http://pragprog.com/magazines/2011-04/advanced-arduino-hacking
 	https://github.com/maik/pragpub
 
+May 30, 2011 - Akkana Peck
+	• Command-line Arduino development
+	http://shallowsky.com/software/arduino/arduino-cmdline.html
+
 Jun 08, 2011 - Ben Scheirman
 	• Fixing Xcode 4’s Broken Code Completion
 	http://benscheirman.com/2011/06/fixing-xcode-4s-broken-code-completion
@@ -92,6 +101,10 @@ Nov 01, 2011 - Амперка - amperka
 	• A command line toolkit for working with Arduino hardware
 	http://arduino.cc/forum/index.php/topic,77458.0.html
 	https://github.com/amperka/ino
+
+Nov 02, 2011 — Chris Liechti
+	• pyserial 2.6 - Python Serial Port Extension
+    http://pypi.python.org/pypi/pyserial
 
 Nov 12, 2011 - Tim Knapen
 	• Arduino with Xcode
@@ -137,36 +150,77 @@ Jan 22, 2012 - Rei Vilo
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 02, 2012 - Rei Vilo
-	• MPIDE on Xcode 4.2 -  release b - chipKIT operational
+	• MPIDE on Xcode 4.2 - release b - chipKIT operational
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 04, 2012 - Rei Vilo
-	• MPIDE on Xcode 4.2 -  release c - code-sense operational
+	• MPIDE on Xcode 4.2 - release c - code-sense operational
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 06, 2012 - Rei Vilo
-	• MPIDE on Xcode 4.2 -  release d - user libraries
+	• MPIDE on Xcode 4.2 - release d - user libraries
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 06, 2012 - Rei Vilo
-	• MPIDE on Xcode 4.2 -  release e - code checking while typing with Index as target
+	• MPIDE on Xcode 4.2 - release e - code checking while typing with Index as target
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 08, 2012 - Rei Vilo
-	• MPIDE on Xcode 4.2 -  release f - code-sense, click-to-error with standard targets
+	• MPIDE on Xcode 4.2 - release f - code-sense, click-to-error with standard targets
 	https://github.com/rei-vilo/mpideXcode
 
 Feb 10, 2012 - Rei Vilo
-	• Embedded Computing on Xcode 4.2 -  release g - multi-application, check-as-you-type, template
+	• Embedded Computing on Xcode 4.2 - release g - multi-application, check-as-you-type, template
 	https://github.com/rei-vilo/embedXcode
 
 Mar 18, 2012 - Robert Wessel
-	• Energia = Arduino IDE ported to TI LaunchPad MSP430
+	• Energia = Arduino IDE ported to TI LaucnhPad MSP430
 	https://github.com/energia/Energia
 
 Apr 05, 2012 — Rei Vilo
 	• New website
 	http://embedXcode.weebly.com/
+	
+Sep 13, 2011 — MapleIDE v0.0.12
+	• C and C++ library for STM32 ARM Cortex-M3 development boards
+	https://github.com/leaflabs/maple-ide
+	https://github.com/leaflabs/libmaple
+	http://leaflabs.com/docs/
+	
+Feb 14, 2012 - Rei Vilo	
+	• embedXcode 1
+	• Multi-application, check-as-you-type, template
+
+Feb 18, 2012 - Rei Vilo
+	• mpideXcode 6, embedXcode 2: Improvements
+	• Installation Guide
+
+Feb 26, 2012 - Rei Vilo
+	• embedXcode 3: Modular makefiles
+
+Mar 06, 2012 - Rei Vilo
+	• mpideXcode 7, embedXcode 4: Arduino 1.0 implementation
+
+Mar 12, 2012 - Rei Vilo
+	• mpideXcode 8, embedXcode 5: Bugs fixed
+
+Mar 15, 2012 - Rei Vilo
+	• mpideXcode 9, embedXcode 6
+	• All Arduino/chipKIT/Wiring/Energia and user libraries included by default
+
+Apr 05, 2012 - Rei Vilo
+	• mpideXcode 10, embedXcode 7: Wiring 1.0 and Energia 1.0 implementations
+
+Apr 08, 2012 - Rei Vilo
+	• mpideXcode 11, embedXcode 8: Bugs fixed
+
+Apr 16, 2012 - Rei Vilo
+	• mpideXcode 12, embedXcode 9: Code-sense reference defined by selected board
+
+May 23, 2012 - Rei Vilo
+	• mpideXcode 13, embedXcode 10: LeafLabs Maple implementation
+	• Added support for Maple, 1st part: compiling and linking
+	• Added support for Maple, 2nd part: uploading and testing
 
 ----------------------------------
 End of file

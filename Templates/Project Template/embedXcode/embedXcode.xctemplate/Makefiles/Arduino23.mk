@@ -16,6 +16,7 @@
 # Arduino 0023 specifics
 # ----------------------------------
 #
+PLATFORM         := Arduino 
 APPLICATION_PATH := /Applications/Arduino.app/Contents/Resources/Java
 
 APP_TOOLS_PATH   := $(APPLICATION_PATH)/hardware/tools/avr/bin

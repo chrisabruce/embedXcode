@@ -68,12 +68,15 @@ ARDUINO_APP = /Applications/Arduino.app
 MPIDE_APP   = /Applications/Mpide.app
 WIRING_APP  = /Applications/Wiring.app
 ENERGIA_APP = /Applications/Energia.app
+MAPLE_APP   = /Applications/MapleIDE.app
 
 ifeq ($(wildcard $(ARDUINO_APP)),)
 ifeq ($(wildcard $(MPIDE_APP)),)
 ifeq ($(wildcard $(WIRING_APP)),)
 ifeq ($(wildcard $(ENERGIA_APP)),)
+ifeq ($(wildcard $(MAPLE_APP)),)
     $(error Error: no application found)
+endif
 endif
 endif
 endif
@@ -83,6 +86,7 @@ ARDUINO_PATH = $(ARDUINO_APP)/Contents/Resources/Java
 MPIDE_PATH   = $(MPIDE_APP)/Contents/Resources/Java
 WIRING_PATH  = $(WIRING_APP)/Contents/Resources/Java
 ENERGIA_PATH = $(ENERGIA_APP)/Contents/Resources/Java
+MAPLE_PATH   = $(MAPLE_APP)/Contents/Resources/Java
 
 
 # Miscellaneous
@@ -104,9 +108,10 @@ OBJDIR  = Builds
 # Clean if new BOARD_TAG
 # ----------------------------------
 #
-OLD_TAG := $(strip $(wildcard $(OBJDIR)/*-TAG)) # */
 NEW_TAG := $(strip $(OBJDIR)/$(BOARD_TAG)-TAG)
+OLD_TAG := $(strip $(wildcard $(OBJDIR)/*-TAG))
 
+# */
 ifneq ($(OLD_TAG),$(NEW_TAG))
     CHANGE_FLAG := 1
 else
@@ -120,27 +125,27 @@ endif
 # Look if BOARD_TAG is listed as a Mpide/PIC32 board
 # Look if BOARD_TAG is listed as a Wiring/Wiring board
 # Look if BOARD_TAG is listed as a Energia/MPS430 board
+# Look if BOARD_TAG is listed as a MapleIDE/LeafLabs board
 # Order matters!
 #
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(shell grep $(BOARD_TAG).name $(ARDUINO_PATH)/hardware/arduino/boards.txt),)
-    $(info .    platform	Arduino)
     include $(MAKEFILE_PATH)/Arduino.mk	
 else ifneq ($(shell grep $(BOARD_TAG).name $(MPIDE_PATH)/hardware/pic32/boards.txt),)
-    $(info .    platform	Mpide)     
     include $(MAKEFILE_PATH)/Mpide.mk
 else ifneq ($(shell grep $(BOARD_TAG).name $(WIRING_PATH)/hardware/Wiring/boards.txt),)
-    $(info .    platform	Wiring)     
     include $(MAKEFILE_PATH)/Wiring.mk
 else ifneq ($(shell grep $(BOARD_TAG).name $(ENERGIA_PATH)/hardware/msp430/boards.txt),)
-    $(info .    platform	Energia)     
     include $(MAKEFILE_PATH)/Energia.mk
+else ifneq ($(shell grep $(BOARD_TAG).name $(MAPLE_PATH)/hardware/leaflabs/boards.txt),)
+    include $(MAKEFILE_PATH)/MapleIDE.mk
 else
     $(error $(BOARD_TAG) is unknown)
 endif
 endif
 endif
+$(info .    platform	$(PLATFORM))
 
 
 # List of sub-paths to be excluded

@@ -41,16 +41,6 @@ ifndef ISP_PROG
 endif
 AVRDUDE_ISP_OPTS  = -P $(ISP_PORT) $(ISP_PROG)
 
-# processor stuff
-#
-ifndef MCU
-MCU   = $(call PARSE_BOARD,$(BOARD_TAG),build.mcu)
-endif
-
-ifndef F_CPU
-F_CPU = $(call PARSE_BOARD,$(BOARD_TAG),build.f_cpu)
-endif
-
 # normal programming info
 #
 ifndef AVRDUDE_PROGRAMMER

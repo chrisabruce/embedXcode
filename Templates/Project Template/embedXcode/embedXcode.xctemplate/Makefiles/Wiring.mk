@@ -16,6 +16,7 @@
 # Wiring specifics
 # ----------------------------------
 #
+PLATFORM          = Wiring
 APPLICATION_PATH := /Applications/Wiring.app/Contents/Resources/Java
 
 APP_TOOLS_PATH   := $(APPLICATION_PATH)/tools/avr/bin
