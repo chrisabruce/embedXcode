@@ -4,10 +4,9 @@
 //  ----------------------------------
 //  Developed with embedXcode
 //
-//  ___PACKAGENAME___
-//  Created by ___USERNAME___ on ___DATE___
+//  Project ___PROJECTNAME___
+//  Created by ___FULLUSERNAME___ on ___DATE___
+//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___
+//  Licence CC = BY SA NC
 //
-
-
-
 
