@@ -10,24 +10,21 @@
 //  Licence CC = BY SA NC
 //
 
-// Core library - MCU-based
-#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
-  #if defined(ARDUINO) && (ARDUINO >= 100)
-  #include "arduino.h" // for Arduino 1.0
-  #else
-  #include "WProgram.h" // for Arduino 23
-  #endif
-#elif defined(__32MX320F128H__) || defined(__32MX795F512L__) // chipKIT specific 
-#include "WProgram.h"
-#elif defined(__AVR_ATmega644P__) // Wiring specific
+// Core library - IDE-based
+#if defined(WIRING) // Wiring specific - official
 #include "Wiring.h"
-#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) // LaunchPad specific
+#elif defined(MAPLE_IDE) // Maple specific - official
+#include "WProgram.h"   
+#elif defined(MPIDE) // chipKIT specific - embedXcode only
+#include "WProgram.h"
+#elif defined(ENERGIA) // LaunchPad specific - embedXcode only
 #include "Energia.h"
-#elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
-#include "WProgram.h"	
-#else // error
-#error Platform not defined
+#elif defined(ARDUINO) && (ARDUINO >= 100) // Arduino 1.0 specific - official
+#include "Arduino.h"
+#elif defined(ARDUINO) && (ARDUINO < 100) // Arduino 23 specific - official
+#include "WProgram.h"
 #endif
+
 
 #ifndef ___PACKAGENAME____LocalLibrary_h
 #define ___PACKAGENAME____LocalLibrary_h

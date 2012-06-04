@@ -5,11 +5,11 @@
 	<key>Kind</key>
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Identifier</key>
-	<string>reivilo.embedXcode_IDE.xcode4.test</string>
+	<string>reivilo.embedXcode_MCU.xcode4.test</string>
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
-	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards. #include library is based on IDE.</string>
+	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards. #include library is based on MCU.</string>
 	<key>SorterOrder</key>
 	<integer>1</integer>
 	<key>Platforms</key>

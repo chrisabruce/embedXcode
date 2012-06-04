@@ -1,40 +1,24 @@
 
-	embedXcode
-	----------------------------------
-	Embedded Computing Template on Xcode 4.3
+  ___PROJECTNAME___
+  Project
+  ----------------------------------
+  Developed with embedXcode
 
-	mpideXcode
-	----------------------------------
-	Embedded Computing Project on Xcode 4.3
-
-
-	© Rei VILO, 2010-2012
-	CC = BY NC SA
-
-	• Documentation
-	http://embedXcode.weebly.com/
-	
-	• GitHub repositories
-	https://github.com/rei-vilo/embedXcode
-	https://github.com/rei-vilo/mpideXcode
-	
-
-embedXcode • May 23, 2012 release 10 • LeafLabs Maple implementation
-mpideXcode • May 23, 2012 release 13 • LeafLabs Maple implementation
-Installation Guide • May 23, 2012 release 7 • LeafLabs Maple implementation
+  Project ___PROJECTNAME___
+  Created by ___FULLUSERNAME___ on ___DATE___
+  Copyright © ___YEAR___ ___ORGANIZATIONNAME___
+  Licence CC = BY SA NC
 
 
-Installation
-----------------------------------
-Check and create ~/Library/Developer/Xcode
-Copy the folder Templates into ~/Library/Developer/Xcode
-Read enclosed Installation Guide
+  References
+  ----------------------------------
 
 
-Contributions
-----------------------------------
-See attached documents for detailed references
 
-----------------------------------
-End of file
+  embedXcode
+  ----------------------------------
+  Embedded Computing Template on Xcode 4.3
+  Copyright © Rei VILO, 2010-2012
+  Licence CC = BY NC SA
+  http://embedXcode.weebly.com/
 

@@ -8,8 +8,8 @@
 	Embedded Computing Project on Xcode 4.3
 
 
-	Copyright © Rei VILO, 2010-2012
-	Licence CC = BY NC SA
+	© Rei VILO, 2010-2012
+	CC = BY NC SA
 
 	• Documentation
 	http://embedXcode.weebly.com/
@@ -19,11 +19,9 @@
 	https://github.com/rei-vilo/mpideXcode
 	
 
-IDE-based identification for all platforms 
-----------------------------------
-embedXcode • Jun 05, 2012 release 12
-mpideXcode • Jun 05, 2012 release 15
-Installation Guide • Jun 03, 2012 release 8
+embedXcode • May 23, 2012 release 10 • LeafLabs Maple implementation
+mpideXcode • May 23, 2012 release 13 • LeafLabs Maple implementation
+Installation Guide • May 23, 2012 release 7 • LeafLabs Maple implementation
 
 
 Installation
