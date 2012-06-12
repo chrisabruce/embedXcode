@@ -28,12 +28,12 @@ BOARDS_TXT       := $(APPLICATION_PATH)/hardware/arduino/boards.txt
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 #
-ifeq ($(wildcard ~/Library/Arduino/preferences.txt),)
+ifeq ($(USER_PATH)/Library/Arduino/preferences.txt,)
     $(error Error: run Arduino once and define sketchbook path)
 endif
 
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
-    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(wildcard ~/Library/Arduino/preferences.txt) | cut -d = -f 2)
+    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(USER_PATH)/Library/Arduino/preferences.txt | cut -d = -f 2)
 endif
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
    $(error Error: sketchbook path not found)

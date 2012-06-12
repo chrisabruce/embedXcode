@@ -42,7 +42,7 @@ GENERATE_PDF    = $(strip $(shell grep 'GENERATE_LATEX *=' $(DOXYFILE) | cut -d 
 GENERATE_DOCSET = $(strip $(shell grep 'GENERATE_DOCSET *=' $(DOXYFILE) | cut -d = -f 2 ))
 
 BUNDLE_ID       = $(strip $(shell grep 'DOCSET_BUNDLE_ID *=' $(DOXYFILE) | cut -d = -f 2 ))
-DOCSET_PATH     = $(wildcard ~/Library/Developer/Shared/Documentation/DocSets/$(BUNDLE_ID).docset)
+DOCSET_PATH     = $(USER_PATH)/Library/Developer/Shared/Documentation/DocSets/$(BUNDLE_ID).docset
 LOAD_UTIL_PATH  = $(UTILITIES_PATH)/loadDocSet.scpt
 
 PDF_PATH        = $(DOCUMENTS_PATH)/latex/refman.pdf
@@ -59,7 +59,7 @@ ifeq ($(wildcard $(DOXYGEN_PATH)),)
 endif
 endif
 
-#___PROJECTNAMEASIDENTIFIER___
+#embed1
 #echo $VAR | tr '[:upper:]' '[:lower:]' | sed 's/ //g'
 
 

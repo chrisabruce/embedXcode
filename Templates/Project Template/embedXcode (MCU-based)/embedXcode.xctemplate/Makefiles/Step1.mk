@@ -96,7 +96,10 @@ MAPLE_PATH   = $(MAPLE_APP)/Contents/Resources/Java
 # ----------------------------------
 # Variables
 #
-TARGET = embeddedcomputing
+TARGET       = embeddedcomputing
+USER_PATH   := $(wildcard ~)
+$(info .    user	$(USER_PATH))
+
 
 # main.cpp selection
 # = 1 takes local main.cpp
@@ -118,7 +121,7 @@ OLD_TAG := $(strip $(wildcard $(OBJDIR)/*-TAG))
 ifneq ($(OLD_TAG),$(NEW_TAG))
     CHANGE_FLAG := 1
 else
-	CHANGE_FLAG := 0
+    CHANGE_FLAG := 0
 endif
 
 

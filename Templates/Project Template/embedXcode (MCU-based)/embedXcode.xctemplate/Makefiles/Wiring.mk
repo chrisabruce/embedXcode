@@ -28,12 +28,12 @@ BOARDS_TXT       := $(APPLICATION_PATH)/hardware/Wiring/boards.txt
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 #
-ifeq ($(wildcard ~/Library/Wiring/preferences.txt),)
+ifeq ($(USER_PATH)/Library/Wiring/preferences.txt,)
     $(error Error: run Wiring once and define sketchbook path)
 endif
 
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
-    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(wildcard ~/Library/Wiring/preferences.txt) | cut -d = -f 2)
+    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(USER_PATH)/Library/Wiring/preferences.txt | cut -d = -f 2)
 endif
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
     $(error Error: sketchbook path not found)

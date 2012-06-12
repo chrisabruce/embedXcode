@@ -417,8 +417,32 @@ endif
 # ----------------------------------
 #
 ifeq ($(MAKECMDGOALS),document)
-include /Users/OlS/Documents/Xcode/Documentation/Documentation/Makefiles/Doxygen.mk
+    $(info include doxygen makefile)
+    include $(MAKEFILE_PATH)/Doxygen.mk
 endif
+
+document0:
+		@echo "--- doxygen reset ---"
+		@if [ -f $(LOAD_UTIL_PATH) ]; then $(REMOVE) $(LOAD_UTIL_PATH); fi
+		@if [ -f $(DOCSET_PATH) ]; then $(REMOVE) $(DOCSET_PATH); fi
+		@echo "tell application \"Xcode\"" > $(LOAD_UTIL_PATH)
+		@echo "load documentation set with path \"$(DOCSET_PATH)\"" >> $(LOAD_UTIL_PATH)
+		@echo "end tell" >> $(LOAD_UTIL_PATH)
+
+document1:
+		@echo "--- doxygen warnings ---"
+		$(DOXYGEN_PATH) $(DOXYFILE)
+		@echo "---- docset generated ----"
+
+document2:
+ifeq ($(GENERATE_DOCSET),YES)
+		make -C $(DOCUMENTS_PATH)/html install > ./Utilities/docset.log
+		@echo "---- docset installed ----"
+endif
+
+document3:
+		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi; 
+
 
 
 # Rules
@@ -558,21 +582,7 @@ boards:
 		@echo "---- end ---- "
 
 
-document:
-		@echo "--- doxygen warnings ---"
-		$(DOXYGEN_PATH) $(DOXYFILE)
-		@echo "---- docset generated ----"
-
-ifeq ($(GENERATE_DOCSET),YES)
-		make -C $(DOCUMENTS_PATH)/html install > ./Utilities/docset.log
-ifneq ($(DOCSET_PATH)),)
-		@echo "---- docset installed ----"
-		@echo "tell application \"Xcode\"" > $(LOAD_UTIL_PATH)
-		@echo "load documentation set with path \"$(DOCSET_PATH)\"" >> $(LOAD_UTIL_PATH)
-		@echo "end tell" >> $(LOAD_UTIL_PATH)
-		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi
-endif
-endif
+document:	document0 document1 document2 document3
 
 		
                 

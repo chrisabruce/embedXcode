@@ -41,12 +41,12 @@ BOARDS_TXT       := $(APPLICATION_PATH)/hardware/leaflabs/boards.txt
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 #
-ifeq ($(wildcard ~/Library/MapleIDE/preferences.txt),)
+ifeq ($(USER_PATH)/Library/MapleIDE/preferences.txt,)
     $(error Error: run Mpide once and define sketchbook path)
 endif
 
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
-    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(wildcard ~/Library/MapleIDE/preferences.txt) | cut -d = -f 2)
+    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(wildcard $(USER_PATH)/Library/MapleIDE/preferences.txt | cut -d = -f 2)
 endif
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
     $(error Error: sketchbook path not found)

@@ -33,7 +33,7 @@ BOARDS_TXT       := $(APPLICATION_PATH)/hardware/msp430/boards.txt
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 #
-ifeq ($(wildcard ~/Library/Energia/preferences.txt),)
+ifeq ($(USER_PATH)/Library/Energia/preferences.txt,)
     $(error Error: run Energia once and define sketchbook path)
 endif
 
