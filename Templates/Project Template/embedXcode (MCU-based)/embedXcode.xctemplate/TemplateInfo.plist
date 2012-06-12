@@ -9,7 +9,7 @@
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
-	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards. #include library is based on IDE.</string>
+	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards, with #include library based on MCU.</string>
 	<key>SorterOrder</key>
 	<integer>1</integer>
 	<key>Platforms</key>
