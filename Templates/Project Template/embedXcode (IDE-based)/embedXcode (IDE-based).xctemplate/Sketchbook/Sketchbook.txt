@@ -1,0 +1,4 @@
+
+Drag and drop your user library folder under the Sketchbook group.
+
+Your user library folder is usually located at Sketchbook > Libraries.

@@ -1,14 +1,21 @@
-//
-//  ___FILENAME___ 
-//  Class Library header
-//  ----------------------------------
-//  Developed with embedXcode
-//
-//  Project ___PROJECTNAME___
-//  Created by ___FULLUSERNAME___ on ___DATE___
-//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___
-//  Licence CC = BY SA NC
-//
+///
+/// @file	___FILENAME___ 
+/// @brief	Class library header
+/// @details	<#details#>
+/// @n	
+/// @n @b	Project ___PROJECTNAME___
+/// @n @a	Developed with [embedXcode](http://embedXcode.weebly.com)
+/// 
+/// @author	___FULLUSERNAME___
+/// @author	___ORGANIZATIONNAME___
+/// @date	___DATE___ ___TIME___
+/// @version	<#version#>
+/// 
+/// @copyright	© ___FULLUSERNAME___, ___YEAR___
+/// @copyright	CC = BY NC SA
+///
+/// @see	ReadMe.txt for references
+///
 
 // Core library - MCU-based
 #if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
@@ -31,12 +38,37 @@
 #ifndef ___FILEBASENAMEASIDENTIFIER_______FILEEXTENSION___
 #define ___FILEBASENAMEASIDENTIFIER_______FILEEXTENSION___
 
+///
+///	@class <#Description#>
+///
 class ___FILEBASENAMEASIDENTIFIER___ {
 public:
+    ///
+    ///	@brief Constructor
+    ///
     ___FILEBASENAMEASIDENTIFIER___();
+    
+    ///
+    ///	@brief Initialisation
+    ///
     void begin();
+    
+    ///
+    ///	@brief Who am I?
+    ///	@return Who am I? string
+    ///
     String WhoAmI();
+    
+    ///
+    ///	@brief <#Description#>
+    ///	@param data <#data description#>
+    ///
     void set(uint8_t data);
+    
+    ///
+    ///	@brief <#Description#>
+    ///	@return <#return value description#>
+    ///
     uint8_t get();
     
 private:    

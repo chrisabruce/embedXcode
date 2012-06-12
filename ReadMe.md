@@ -2,8 +2,6 @@
 # embedXcode
 *Embedded Computing Template on Xcode 4.3*
 
-# mpideXcode
-*Embedded Computing Project on Xcode 4.3*
 
 
 Supported boards: Arduino, chipKIT, Wiring, LaunchPad and Maple
@@ -26,7 +24,7 @@ Copy the folder Templates into `~/Library/Developer/Xcode`
 Read enclosed Installation Guide
 
 
-## Contributions
+## References
 
 See attached documents for detailed references
 

@@ -1,14 +1,22 @@
 //
-//  ___FILENAME___ 
-//  Library C++ code
-//  ----------------------------------
-//  Developed with embedXcode
+// ___FILENAME___ 
+// Library C++ code
+// ----------------------------------
+// Developed with embedXcode 
+// http://embedXcode.weebly.com
 //
-//  Project ___PROJECTNAME___
-//  Created by ___FULLUSERNAME___ on ___DATE___
-//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___
-//  Licence CC = BY SA NC
+// Project ___PROJECTNAME___
 //
+// Created by ___FULLUSERNAME___, ___DATE___ ___TIME___
+// ___ORGANIZATIONNAME___
+//	
+//
+// Copyright © ___FULLUSERNAME___, ___YEAR___
+// Licence CC = BY NC SA
+//
+// See ___FILENAME___.h and ReadMe.txt for references
+//
+
 
 // Core library - MCU-based
 #if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
