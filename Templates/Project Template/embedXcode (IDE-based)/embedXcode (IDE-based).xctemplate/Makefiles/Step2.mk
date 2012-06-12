@@ -13,7 +13,7 @@
 # 
 
 
-include $(MAKEFILE_PATH)/Avrdude.mk 
+include $(MAKEFILE_PATH)/Avrdude.mk
 
 ifndef UPLOADER
     UPLOADER = avrdude
@@ -413,6 +413,14 @@ endif
 endif
 
 
+# Doxygen
+# ----------------------------------
+#
+ifeq ($(MAKECMDGOALS),document)
+include /Users/OlS/Documents/Xcode/Documentation/Documentation/Makefiles/Doxygen.mk
+endif
+
+
 # Rules
 # ----------------------------------
 #
@@ -549,4 +557,23 @@ boards:
 		@if [ -d $(MAPLE_APP) ];   then echo "---- $(MAPLE_APP) ---- ";   grep .name $(MAPLE_PATH)/hardware/leaflabs/boards.txt;  echo; fi
 		@echo "---- end ---- "
 
-.PHONY:	all clean depends upload raw_upload reset serial show_boards headers size
+
+document:
+		@echo "--- doxygen warnings ---"
+		$(DOXYGEN_PATH) $(DOXYFILE)
+		@echo "---- docset generated ----"
+
+ifeq ($(GENERATE_DOCSET),YES)
+		make -C $(DOCUMENTS_PATH)/html install > ./Utilities/docset.log
+ifneq ($(DOCSET_PATH)),)
+		@echo "---- docset installed ----"
+		@echo "tell application \"Xcode\"" > $(LOAD_UTIL_PATH)
+		@echo "load documentation set with path \"$(DOCSET_PATH)\"" >> $(LOAD_UTIL_PATH)
+		@echo "end tell" >> $(LOAD_UTIL_PATH)
+		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi
+endif
+endif
+
+		
+                
+.PHONY:	all clean depends upload raw_upload reset serial show_boards headers size document

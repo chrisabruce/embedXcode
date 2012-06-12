@@ -2573,6 +2573,13 @@
 			<key>Group</key>
 			<string>Makefiles</string>
 		</dict>
+		<key>Makefiles/Doxygen.mk</key>
+		<dict>
+			<key>Path</key>
+			<string>Makefiles/Doxygen.mk</string>
+			<key>Group</key>
+			<string>Makefiles</string>
+		</dict>
 		<key>About/README_mjo_tc.txt</key>
 		<dict>
 			<key>Group</key>
@@ -5458,6 +5465,15 @@
 				<string>maple</string>
 			</array>
 		</dict>
+		<key>Utilities/doxyfile</key>
+		<dict>
+			<key>Path</key>
+			<string>Utilities/doxyfile</string>
+			<key>Group</key>
+			<array>
+				<string>Utilities</string>
+			</array>
+		</dict>
 		<key>Utilities/reset.py</key>
 		<dict>
 			<key>Path</key>
@@ -5952,13 +5968,14 @@
 		<string>Makefiles/Arduino.mk</string>
 		<string>Makefiles/Arduino1.mk</string>
 		<string>Makefiles/Arduino23.mk</string>
-		<string>Makefiles/Avrdude.mk</string>
 		<string>Makefiles/Energia.mk</string>
 		<string>Makefiles/MapleIDE.mk</string>
 		<string>Makefiles/Mpide.mk</string>
+		<string>Makefiles/Wiring.mk</string>
 		<string>Makefiles/Step1.mk</string>
 		<string>Makefiles/Step2.mk</string>
-		<string>Makefiles/Wiring.mk</string>
+		<string>Makefiles/Avrdude.mk</string>
+		<string>Makefiles/Doxygen.mk</string>
 		<string>ReadMe.txt</string>
 		<string>About/README.txt</string>
 		<string>About/Licence CC BY-NC-SA.txt</string>
@@ -5967,6 +5984,7 @@
 		<string>About/README_peplin.txt</string>
 		<string>About/References.txt</string>
 		<string>Utilities/reset.py</string>
+		<string>Utilities/doxyfile</string>
 	</array>
 	<key>Project</key>
 	<dict>

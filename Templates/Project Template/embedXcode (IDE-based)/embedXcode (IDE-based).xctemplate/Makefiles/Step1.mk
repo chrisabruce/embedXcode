@@ -133,15 +133,15 @@ endif
 #
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(shell grep $(BOARD_TAG).name $(ARDUINO_PATH)/hardware/arduino/boards.txt),)
-    include $(MAKEFILE_PATH)/Arduino.mk	
-else ifneq ($(shell grep $(BOARD_TAG).name $(MPIDE_PATH)/hardware/pic32/boards.txt),)
+ifneq ($(shell grep ^$(BOARD_TAG).name $(ARDUINO_PATH)/hardware/arduino/boards.txt),)
+    include $(MAKEFILE_PATH)/Arduino.mk
+else ifneq ($(shell grep ^$(BOARD_TAG).name $(MPIDE_PATH)/hardware/pic32/boards.txt),)
     include $(MAKEFILE_PATH)/Mpide.mk
-else ifneq ($(shell grep $(BOARD_TAG).name $(WIRING_PATH)/hardware/Wiring/boards.txt),)
+else ifneq ($(shell grep ^$(BOARD_TAG).name $(WIRING_PATH)/hardware/Wiring/boards.txt),)
     include $(MAKEFILE_PATH)/Wiring.mk
-else ifneq ($(shell grep $(BOARD_TAG).name $(ENERGIA_PATH)/hardware/msp430/boards.txt),)
+else ifneq ($(shell grep ^$(BOARD_TAG).name $(ENERGIA_PATH)/hardware/msp430/boards.txt),)
     include $(MAKEFILE_PATH)/Energia.mk
-else ifneq ($(shell grep $(BOARD_TAG).name $(MAPLE_PATH)/hardware/leaflabs/boards.txt),)
+else ifneq ($(shell grep ^$(BOARD_TAG).name $(MAPLE_PATH)/hardware/leaflabs/boards.txt),)
     include $(MAKEFILE_PATH)/MapleIDE.mk
 else
     $(error $(BOARD_TAG) is unknown)
@@ -152,7 +152,11 @@ endif
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
 $(info .    ide	     	$(PLATFORM))
-$(info .    version 	$(shell cat $(ARDUINO_PATH)/lib/version.txt))
+ifneq ($(PLATFORM),MapleIDE)
+$(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/version.txt))
+else
+$(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/build-version.txt))
+endif
 endif
 endif
 
@@ -166,6 +170,6 @@ EXCLUDE_LIST   = $(addprefix %,$(EXCLUDE_NAMES))
 # Function PARSE_BOARD data retrieval from boards.txt
 # result = $(call READ_BOARD_TXT,'boardname','parameter')
 #
-PARSE_BOARD = $(shell grep $(1).$(2) $(BOARDS_TXT) | cut -d = -f 2 )
+PARSE_BOARD = $(shell grep ^$(1).$(2) $(BOARDS_TXT) | cut -d = -f 2 )
 
 include $(MAKEFILE_PATH)/Step2.mk
