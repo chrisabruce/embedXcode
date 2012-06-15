@@ -154,11 +154,13 @@ endif
 
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(PLATFORM),Wiring)
 $(info .    ide	     	$(PLATFORM))
 ifneq ($(PLATFORM),MapleIDE)
 $(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/version.txt))
 else
 $(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/build-version.txt))
+endif
 endif
 endif
 endif
