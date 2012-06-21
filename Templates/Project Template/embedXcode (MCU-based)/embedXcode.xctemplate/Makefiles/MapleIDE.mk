@@ -46,7 +46,7 @@ ifeq ($(USER_PATH)/Library/MapleIDE/preferences.txt,)
 endif
 
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
-    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(wildcard $(USER_PATH)/Library/MapleIDE/preferences.txt | cut -d = -f 2)
+    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(USER_PATH)/Library/MapleIDE/preferences.txt | cut -d = -f 2)
 endif
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
     $(error Error: sketchbook path not found)

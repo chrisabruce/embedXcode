@@ -28,12 +28,12 @@ BOARDS_TXT       := $(APPLICATION_PATH)/hardware/pic32/boards.txt
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 #
-ifeq ($(wildcard $(USER_PATH)/Library/Mpide/preferences.txt,)
+ifeq ($(wildcard $(USER_PATH)/Library/Mpide/preferences.txt),)
     $(error Error: run Mpide once and define sketchbook path)
 endif
 
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
-    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(USER_PATH)/Library/Mpide/preferences.txt) | cut -d = -f 2)
+    SKETCHBOOK_DIR = $(shell grep sketchbook.path $(USER_PATH)/Library/Mpide/preferences.txt | cut -d = -f 2)
 endif
 ifeq ($(wildcard $(SKETCHBOOK_DIR)),)
     $(error Error: sketchbook path not found)

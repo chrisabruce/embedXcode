@@ -22,7 +22,6 @@
 #include "Energia.h"
 #elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
 #include "WProgram.h"	
-#pragma monmessage
 #else // error
 #error Platform not defined
 #endif</string>
