@@ -385,21 +385,6 @@ endif
 #
 # Info
 #
-
-# OBJS    = $(CORE_OBJS) $(BUILD_CORE_OBJS) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(USER_OBJS) $(LOCAL_OBJS) 
-
-$(info .    OBJS		$(OBJS)) 
-$(info .    CORE_OBJS		$(CORE_OBJS)) 
-$(info .    BUILD_CORE_OBJS	$(BUILD_CORE_OBJS)) 
-$(info .    APP_LIB_OBJS	$(APP_LIB_OBJS)) 
-$(info .    BUILD_APP_LIB_OBJS	$(BUILD_APP_LIB_OBJS)) 
-$(info .    VARIANT_OBJS	$(VARIANT_OBJS)) 
-$(info .    USER_OBJS		$(USER_OBJS)) 
-$(info .    LOCAL_OBJS		$(LOCAL_OBJS)) 
-$(info  ---- **** ----)
-
-
-
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
 $(info .    variant		$(VARIANT)) 
