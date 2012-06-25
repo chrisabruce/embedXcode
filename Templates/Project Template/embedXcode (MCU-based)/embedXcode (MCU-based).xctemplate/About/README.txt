@@ -19,9 +19,8 @@
 	https://github.com/rei-vilo/mpideXcode
 	
 
-embedXcode • May 23, 2012 release 10 • LeafLabs Maple implementation
-mpideXcode • May 23, 2012 release 13 • LeafLabs Maple implementation
-Installation Guide • May 23, 2012 release 7 • LeafLabs Maple implementation
+embedXcode • Jun 25, 2012 release 14 • Size optimisation
+Installation Guide • Jun 15, 2012 release 9 • Built-in self-documentation
 
 
 Installation

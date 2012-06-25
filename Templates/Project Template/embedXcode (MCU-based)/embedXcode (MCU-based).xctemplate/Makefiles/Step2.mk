@@ -145,6 +145,7 @@ endif
 
 # Main targets
 #
+TARGET_A   = $(OBJDIR)/$(TARGET).a
 TARGET_HEX = $(OBJDIR)/$(TARGET).hex
 TARGET_ELF = $(OBJDIR)/$(TARGET).elf
 TARGET_BIN = $(OBJDIR)/$(TARGET).bin
@@ -177,7 +178,7 @@ SYS_OBJS      = $(wildcard $(patsubst %,%/*.o,$(APP_LIBS))) # */
 SYS_OBJS     += $(wildcard $(patsubst %,%/*.o,$(BUILD_APP_LIBS))) # */
 SYS_OBJS     += $(wildcard $(patsubst %,%/*.o,$(USER_LIBS))) # */
 
-CPPFLAGS      = -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU) -I. -I$(CORE_LIB_PATH) \
+CPPFLAGS      = -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU) -I$(CORE_LIB_PATH) \
 			$(SYS_INCLUDES) -g -Os -w -Wall -ffunction-sections -fdata-sections $(EXTRA_CPPFLAGS)
 
 ifdef USE_GNU99
@@ -185,8 +186,8 @@ CFLAGS        = -std=gnu99
 endif
 
 CXXFLAGS      = -fno-exceptions
-ASFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -I. -x assembler-with-cpp
-LDFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -lm -Wl,--gc-sections -Os $(EXTRA_LDFLAGS)
+ASFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -x assembler-with-cpp
+LDFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -lm -Wl,-gc-sections,-u,main -Os $(EXTRA_LDFLAGS)
 
 ifndef OBJCOPYFLAGS
 OBJCOPYFLAGS  = -Oihex -R .eeprom
@@ -384,6 +385,21 @@ endif
 #
 # Info
 #
+
+# OBJS    = $(CORE_OBJS) $(BUILD_CORE_OBJS) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(USER_OBJS) $(LOCAL_OBJS) 
+
+$(info .    OBJS		$(OBJS)) 
+$(info .    CORE_OBJS		$(CORE_OBJS)) 
+$(info .    BUILD_CORE_OBJS	$(BUILD_CORE_OBJS)) 
+$(info .    APP_LIB_OBJS	$(APP_LIB_OBJS)) 
+$(info .    BUILD_APP_LIB_OBJS	$(BUILD_APP_LIB_OBJS)) 
+$(info .    VARIANT_OBJS	$(VARIANT_OBJS)) 
+$(info .    USER_OBJS		$(USER_OBJS)) 
+$(info .    LOCAL_OBJS		$(LOCAL_OBJS)) 
+$(info  ---- **** ----)
+
+
+
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
 $(info .    variant		$(VARIANT)) 
@@ -444,6 +460,21 @@ document3:
 		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi; 
 
 
+# !!! .a file
+# ----------------------------------
+#
+
+$(TARGET_ELF): 	$(OBJS)
+		@echo "23-.a" 
+		$(AR) rcs $(TARGET_A) $(OBJS)
+		@echo "23-link" 
+ifeq ($(PLATFORM),MapleIDE)
+		$(CXX) $(LDFLAGS) -o $@ $(SYS_OBJS) $(TARGET_A) -L$(OBJDIR)
+else
+		$(CC) $(LDFLAGS) -o $@ $(SYS_OBJS) $(TARGET_A) -lc
+endif
+
+
 
 # Rules
 # ----------------------------------
@@ -458,19 +489,21 @@ make:		changed compile
 compile:	$(OBJDIR) $(TARGET_HEXBIN) size
 		@echo " ---- compile ---- "
 		@echo $(BOARD_TAG) > $(NEW_TAG)
-        
+       
+info:
+		@echo " ---- info ---- "
 
 $(OBJDIR):
 		@echo " ---- build ---- "
 		mkdir $(OBJDIR)
 
-$(TARGET_ELF): 	$(OBJS)
-		@echo "23-" $<
-ifeq ($(PLATFORM),MapleIDE)
-		$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(SYS_OBJS) -L$(OBJDIR)
-else
-		$(CC) $(LDFLAGS) -o $@ $(OBJS) $(SYS_OBJS) -lc
-endif
+#$(TARGET_ELF): 	$(OBJS)
+#		@echo "23-" $<
+#ifeq ($(PLATFORM),MapleIDE)
+#		$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(SYS_OBJS) -L$(OBJDIR)
+#else
+#		$(CC) $(LDFLAGS) -o $@ $(OBJS) $(SYS_OBJS) -lc
+#endif
 
 $(DEP_FILE):	$(OBJDIR) $(DEPS)
 		@echo "24-" $<
@@ -479,7 +512,7 @@ $(DEP_FILE):	$(OBJDIR) $(DEPS)
 upload:		reset raw_upload
 
 
-raw_upload:	$(TARGET_HEX) $(TARGET_BIN)
+raw_upload:
 		@echo " ---- upload ---- "
 ifeq ($(UPLOADER),avrdude)
 		$(AVRDUDE) $(AVRDUDE_COM_OPTS) $(AVRDUDE_OPTS) -Uflash:w:$(TARGET_HEX):i
@@ -499,12 +532,9 @@ endif
 # least. Perhaps it would be better to just do it in perl ?
 reset:
 		@echo "---- reset ---- "
-ifeq ($(UPLOADER),avrdude)
-		-screen -X kill;
-		sleep 1;
-else ifeq ($(UPLOADER),dfu-util)
-		-screen -X kill;
+		-screen -X kill
 		sleep 1
+ifeq ($(UPLOADER),dfu-util)
 		$(DFU_RESET)
 		sleep 1
 endif
@@ -548,7 +578,7 @@ serial:		reset
 size:
 		@echo "---- size ---- "
 		@if [ -f $(TARGET_HEX) ]; then $(HEXSIZE); echo; fi
-		@if [ -f $(TARGET_ELF) ]; then $(ELFSIZE); echo; fi
+#		@if [ -f $(TARGET_ELF) ]; then $(ELFSIZE); echo; fi
 		@if [ -f $(TARGET_BIN) ]; then $(BINSIZE); echo; fi
 
 

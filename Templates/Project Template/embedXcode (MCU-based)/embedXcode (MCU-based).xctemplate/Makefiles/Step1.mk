@@ -117,7 +117,6 @@ OBJDIR  = Builds
 NEW_TAG := $(strip $(OBJDIR)/$(BOARD_TAG)-TAG)
 OLD_TAG := $(strip $(wildcard $(OBJDIR)/*-TAG))
 
-# */
 ifneq ($(OLD_TAG),$(NEW_TAG))
     CHANGE_FLAG := 1
 else

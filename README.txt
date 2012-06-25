@@ -3,22 +3,23 @@
 	----------------------------------
 	Embedded Computing Template on Xcode 4.3
 
+	mpideXcode
+	----------------------------------
+	Embedded Computing Project on Xcode 4.3
 
-	Copyright © Rei VILO, 2010-2012
-	Licence CC = BY NC SA
+
+	© Rei VILO, 2010-2012
+	CC = BY NC SA
 
 	• Documentation
 	http://embedXcode.weebly.com/
 	
 	• GitHub repositories
 	https://github.com/rei-vilo/embedXcode
-	https://github.com/rei-vilo/mpideXcode
 	
 
-Self-documentation 
-----------------------------------
-embedXcode • Jun 14, 2012 release 13
-Installation Guide • Jun 14, 2012 release 9
+embedXcode • Jun 25, 2012 release 14 • HEX and BIN size optimisation
+Installation Guide • Jun 15, 2012 release 9 • Built-in self-documentation
 
 
 Installation
@@ -28,7 +29,7 @@ Copy the folder Templates into ~/Library/Developer/Xcode
 Read enclosed Installation Guide
 
 
-References
+Contributions
 ----------------------------------
 See attached documents for detailed references
 
