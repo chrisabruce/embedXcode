@@ -19,7 +19,7 @@
 	
 
 embedXcode • Jun 25, 2012 release 14 • HEX and BIN size optimisation
-Installation Guide • Jun 15, 2012 release 9 • Built-in self-documentation
+Installation Guide • Jun 27, 2012 release 10 • Updated references
 
 
 Installation
