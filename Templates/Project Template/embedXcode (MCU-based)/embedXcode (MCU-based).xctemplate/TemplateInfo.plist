@@ -789,130 +789,152 @@
 				<string>utility</string>
 			</array>
 		</dict>
-<key>Energia/libraries/LiquidCrystal/LiquidCrystal.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/LiquidCrystal/LiquidCrystal.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>LiquidCrystal</string>
-	</array>
-</dict>
-<key>Energia/libraries/LiquidCrystal/LiquidCrystal.h</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/LiquidCrystal/LiquidCrystal.h</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>LiquidCrystal</string>
-	</array>
-</dict>
-<key>Energia/libraries/MspFlash/MspFlash.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/MspFlash/MspFlash.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>MspFlash</string>
-	</array>
-</dict>
-<key>Energia/libraries/MspFlash/MspFlash.h</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/MspFlash/MspFlash.h</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>MspFlash</string>
-	</array>
-</dict>
-<key>Energia/libraries/SPI/SPI.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/SPI.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>SPI</string>
-	</array>
-</dict>
-<key>Energia/libraries/SPI/SPI.h</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/SPI.h</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>SPI</string>
-	</array>
-</dict>
-<key>Energia/libraries/SPI/utility/spi_430.h</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/spi_430.h</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>SPI</string>
-		<string>utility</string>
-	</array>
-</dict>
-<key>Energia/libraries/SPI/utility/usci_spi.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/usci_spi.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>SPI</string>
-		<string>utility</string>
-	</array>
-</dict>
-<key>Energia/libraries/SPI/utility/usi_spi.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/usi_spi.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>SPI</string>
-		<string>utility</string>
-	</array>
-</dict>
-<key>Energia/libraries/Stepper/Stepper.cpp</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Stepper/Stepper.cpp</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>Stepper</string>
-	</array>
-</dict>
-<key>Energia/libraries/Stepper/Stepper.h</key>
-<dict>
-	<key>Path</key>
-	<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Stepper/Stepper.h</string>
-	<key>Group</key>
-	<array>
-		<string>Energia</string>
-		<string>libraries</string>
-		<string>Stepper</string>
-	</array>
-</dict>
+		<key>Energia/libraries/LiquidCrystal/LiquidCrystal.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/LiquidCrystal/LiquidCrystal.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>LiquidCrystal</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/LiquidCrystal/LiquidCrystal.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/LiquidCrystal/LiquidCrystal.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>LiquidCrystal</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/MspFlash/MspFlash.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/MspFlash/MspFlash.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>MspFlash</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/MspFlash/MspFlash.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/MspFlash/MspFlash.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>MspFlash</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/SPI/SPI.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/SPI.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>SPI</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/Servo/Servo.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Servo/Servo.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Servo</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/Servo/Servo.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Servo/Servo.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Servo</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/SPI/SPI.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/SPI.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>SPI</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/SPI/utility/spi_430.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/spi_430.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>SPI</string>
+				<string>utility</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/SPI/utility/usci_spi.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/usci_spi.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>SPI</string>
+				<string>utility</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/SPI/utility/usi_spi.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/SPI/utility/usi_spi.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>SPI</string>
+				<string>utility</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/Stepper/Stepper.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Stepper/Stepper.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Stepper</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/Stepper/Stepper.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Stepper/Stepper.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Stepper</string>
+			</array>
+		</dict>
 		<key>Sketchbook</key>
 		<dict>
 			<key>Path</key>
@@ -5726,15 +5748,16 @@
 		<string>Energia/cores/msp430/WMath.cpp</string>
 		<string>Energia/cores/msp430/WString.cpp</string>
 		<string>Energia/cores/msp430/WString.h</string>
-<string>Energia/libraries/LiquidCrystal/LiquidCrystal.h</string>
-<string>Energia/libraries/MspFlash/MspFlash.cpp</string>
-<string>Energia/libraries/MspFlash/MspFlash.h</string>
-<string>Energia/libraries/SPI/SPI.cpp</string>
-<string>Energia/libraries/SPI/SPI.h</string>
-<string>Energia/libraries/SPI/utility/spi_430.h</string>
-<string>Energia/libraries/SPI/utility/usci_spi.cpp</string>
-<string>Energia/libraries/SPI/utility/usi_spi.cpp</string>
-<string>Energia/libraries/Stepper/Stepper.cpp</string>
+		<string>Energia/libraries/LiquidCrystal/LiquidCrystal.h</string>
+		<string>Energia/libraries/LiquidCrystal/LiquidCrystal.cpp</string>
+		<string>Energia/libraries/MspFlash/MspFlash.cpp</string>
+		<string>Energia/libraries/MspFlash/MspFlash.h</string>
+		<string>Energia/libraries/SPI/SPI.cpp</string>
+		<string>Energia/libraries/SPI/SPI.h</string>
+		<string>Energia/libraries/SPI/utility/spi_430.h</string>
+		<string>Energia/libraries/SPI/utility/usci_spi.cpp</string>
+		<string>Energia/libraries/SPI/utility/usi_spi.cpp</string>
+		<string>Energia/libraries/Stepper/Stepper.cpp</string>
 		<string>Energia/libraries/Stepper/Stepper.h</string>
 		<string>Energia/libraries/TimerSerial/TimerSerial.cpp</string>
 		<string>Energia/libraries/TimerSerial/TimerSerial.h</string>
@@ -5742,6 +5765,8 @@
 		<string>Energia/libraries/Wire/utility/twi.h</string>
 		<string>Energia/libraries/Wire/Wire.cpp</string>
 		<string>Energia/libraries/Wire/Wire.h</string>
+		<string>Energia/libraries/Servo/Servo.cpp</string>
+		<string>Energia/libraries/Servo/Servo.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.c</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/bit_constants.h</string>

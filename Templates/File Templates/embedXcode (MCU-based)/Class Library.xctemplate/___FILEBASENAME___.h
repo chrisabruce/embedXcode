@@ -17,6 +17,7 @@
 /// @see	ReadMe.txt for references
 ///
 
+
 // Core library - MCU-based
 #if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
 #if defined(ARDUINO) && (ARDUINO >= 100)

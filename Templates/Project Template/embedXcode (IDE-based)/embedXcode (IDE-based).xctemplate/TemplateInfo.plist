@@ -844,6 +844,28 @@
 				<string>SPI</string>
 			</array>
 		</dict>
+		<key>Energia/libraries/Servo/Servo.cpp</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Servo/Servo.cpp</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Servo</string>
+			</array>
+		</dict>
+		<key>Energia/libraries/Servo/Servo.h</key>
+		<dict>
+			<key>Path</key>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/Servo/Servo.h</string>
+			<key>Group</key>
+			<array>
+				<string>Energia</string>
+				<string>libraries</string>
+				<string>Servo</string>
+			</array>
+		</dict>
 		<key>Energia/libraries/SPI/SPI.h</key>
 		<dict>
 			<key>Path</key>
@@ -5727,6 +5749,7 @@
 		<string>Energia/cores/msp430/WString.cpp</string>
 		<string>Energia/cores/msp430/WString.h</string>
 		<string>Energia/libraries/LiquidCrystal/LiquidCrystal.h</string>
+		<string>Energia/libraries/LiquidCrystal/LiquidCrystal.cpp</string>
 		<string>Energia/libraries/MspFlash/MspFlash.cpp</string>
 		<string>Energia/libraries/MspFlash/MspFlash.h</string>
 		<string>Energia/libraries/SPI/SPI.cpp</string>
@@ -5742,6 +5765,8 @@
 		<string>Energia/libraries/Wire/utility/twi.h</string>
 		<string>Energia/libraries/Wire/Wire.cpp</string>
 		<string>Energia/libraries/Wire/Wire.h</string>
+		<string>Energia/libraries/Servo/Servo.cpp</string>
+		<string>Energia/libraries/Servo/Servo.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.c</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/bit_constants.h</string>

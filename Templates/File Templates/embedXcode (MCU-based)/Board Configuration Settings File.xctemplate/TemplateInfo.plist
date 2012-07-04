@@ -6,13 +6,15 @@
 	<string>Board Config</string>
 	<key>Description</key>
 	<string>An empty board configuration settings file for embedXcode.</string>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>MainTemplateFile</key>
 	<string>___FILEBASENAME___.config</string>
 	<key>Summary</key>
 	<string>An empty board configuration settings file for embedXcode.</string>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.macosx</string>
+	</array>
 </dict>
 </plist>
