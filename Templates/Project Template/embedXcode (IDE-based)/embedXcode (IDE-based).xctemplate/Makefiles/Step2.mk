@@ -15,6 +15,10 @@
 
 include $(MAKEFILE_PATH)/Avrdude.mk
 
+ifeq ($(AVRDUDE_PORT),)
+    $(error Serial port not available)
+endif
+
 ifndef UPLOADER
     UPLOADER = avrdude
 endif
