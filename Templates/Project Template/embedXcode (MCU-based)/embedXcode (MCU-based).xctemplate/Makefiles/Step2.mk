@@ -15,8 +15,18 @@
 
 include $(MAKEFILE_PATH)/Avrdude.mk
 
+ifneq ($(MAKECMDGOALS),boards)
+ifneq ($(MAKECMDGOALS),build)
+ifneq ($(MAKECMDGOALS),make)
+ifneq ($(MAKECMDGOALS),document)
+ifneq ($(MAKECMDGOALS),clean)
 ifeq ($(AVRDUDE_PORT),)
     $(error Serial port not available)
+endif
+endif
+endif
+endif
+endif
 endif
 
 ifndef UPLOADER
@@ -454,7 +464,7 @@ document3:
 #
 
 $(TARGET_ELF): 	$(OBJS)
-		@echo "23-.a" 
+		@echo "23-archive"
 		$(AR) rcs $(TARGET_A) $(OBJS)
 		@echo "23-link" 
 ifeq ($(PLATFORM),MapleIDE)
