@@ -721,26 +721,26 @@
 				<string>msp430</string>
 			</array>
 		</dict>
-		<key>Energia/libraries/TimerSerial/TimerSerial.cpp</key>
+		<key>Energia/cores/msp430/TimerSerial.cpp</key>
 		<dict>
 			<key>Path</key>
-			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/TimerSerial/TimerSerial.cpp</string>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/cores/msp430/TimerSerial.cpp</string>
 			<key>Group</key>
 			<array>
 				<string>Energia</string>
-				<string>libraries</string>
-				<string>TimeSerial</string>
+				<string>cores</string>
+				<string>msp430</string>
 			</array>
 		</dict>
-		<key>Energia/libraries/TimerSerial/TimerSerial.h</key>
+		<key>Energia/cores/msp430/TimerSerial.h</key>
 		<dict>
 			<key>Path</key>
-			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/libraries/TimerSerial/TimerSerial.h</string>
+			<string>/Applications/Energia.app/Contents/Resources/Java/hardware/msp430/cores/msp430/TimerSerial.h</string>
 			<key>Group</key>
 			<array>
 				<string>Energia</string>
-				<string>libraries</string>
-				<string>TimeSerial</string>
+				<string>cores</string>
+				<string>msp430</string>
 			</array>
 		</dict>
 		<key>Energia/libraries/Wire/Wire.cpp</key>
@@ -5739,6 +5739,8 @@
 		<string>Energia/cores/msp430/Printable.h</string>
 		<string>Energia/cores/msp430/Stream.cpp</string>
 		<string>Energia/cores/msp430/Stream.h</string>
+		<string>Energia/cores/msp430/TimerSerial.cpp</string>
+		<string>Energia/cores/msp430/TimerSerial.h</string>
 		<string>Energia/cores/msp430/WCharacter.h</string>
 		<string>Energia/cores/msp430/WInterrupts.c</string>
 		<string>Energia/cores/msp430/wiring_analog.c</string>
@@ -5752,6 +5754,8 @@
 		<string>Energia/libraries/LiquidCrystal/LiquidCrystal.cpp</string>
 		<string>Energia/libraries/MspFlash/MspFlash.cpp</string>
 		<string>Energia/libraries/MspFlash/MspFlash.h</string>
+		<string>Energia/libraries/Servo/Servo.cpp</string>
+		<string>Energia/libraries/Servo/Servo.h</string>
 		<string>Energia/libraries/SPI/SPI.cpp</string>
 		<string>Energia/libraries/SPI/SPI.h</string>
 		<string>Energia/libraries/SPI/utility/spi_430.h</string>
@@ -5759,14 +5763,10 @@
 		<string>Energia/libraries/SPI/utility/usi_spi.cpp</string>
 		<string>Energia/libraries/Stepper/Stepper.cpp</string>
 		<string>Energia/libraries/Stepper/Stepper.h</string>
-		<string>Energia/libraries/TimerSerial/TimerSerial.cpp</string>
-		<string>Energia/libraries/TimerSerial/TimerSerial.h</string>
 		<string>Energia/libraries/Wire/utility/twi.c</string>
 		<string>Energia/libraries/Wire/utility/twi.h</string>
 		<string>Energia/libraries/Wire/Wire.cpp</string>
 		<string>Energia/libraries/Wire/Wire.h</string>
-		<string>Energia/libraries/Servo/Servo.cpp</string>
-		<string>Energia/libraries/Servo/Servo.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.c</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/adc.h</string>
 		<string>MapleIDE/hardware/leaflabs/cores/maple/bit_constants.h</string>
