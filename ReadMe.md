@@ -1,6 +1,5 @@
-
 # embedXcode
-*Embedded Computing Template on Xcode 4.3*
+*Embedded Computing Template for Xcode 4.3*
 
 
 
@@ -11,9 +10,12 @@ Supported boards: Arduino, chipKIT, Wiring, LaunchPad and Maple
 
 ![IMG](http://i.creativecommons.org/l/by-nc-sa/3.0/nl/88x31.png) CC = BY NC SA 
 
+
+## Links
+
 [Website](http://embedXcode.weebly.com/)
 
-[Installation guide and user manual](http://embedXcode.weebly.com/tutorial.html)
+[Installation Guide and User Manual](http://embedXcode.weebly.com/tutorial.html)
     
 
 ## Installation
