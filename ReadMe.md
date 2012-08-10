@@ -1,5 +1,5 @@
 # embedXcode
-*Embedded Computing Template for Xcode 4.3*
+*Embedded Computing Template for Xcode 4*
 
 
 
