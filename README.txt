@@ -1,11 +1,7 @@
 
 	embedXcode
 	----------------------------------
-	Embedded Computing Template on Xcode 4.3
-
-	mpideXcode
-	----------------------------------
-	Embedded Computing Project on Xcode 4.3
+	Embedded Computing Template on Xcode 4
 
 
 	© Rei VILO, 2010-2012
@@ -18,8 +14,8 @@
 	https://github.com/rei-vilo/embedXcode
 	
 
-embedXcode • Jun 25, 2012 release 14 • HEX and BIN size optimisation
-Installation Guide • Jun 27, 2012 release 10 • Updated references
+embedXcode • Sep 01, 2012 release 15 • Support for Leonardo
+Installation Guide • Sep 01, 2012 release 11 • Support for Leonardo
 
 
 Installation

@@ -46,14 +46,7 @@ APP_LIBS_LIST = 0
 
 # List users libraries here 
 #
-#USER_LIBS_LIST = I2C_20x4 I2C_Clock I2C_Stepper \
-	I2C_Thermometer I2C_Pressure I2C_Humidity I2C_Climate \
-	I2C_Accelerometer I2C_Magnetometer I2C_Compass I2C_Gyroscope I2C_IMU \
-	I2C_Potentiometer I2C_Height_IOs \
-	I2C_RGBC_Reader I2C_RGB_LED \
-	NewSoftSerial I2C_Serial Serial_LCD \
-	MatrixMath MsTimer2 Serial_GPS pic32_RTC \
-	DWIFIcK DWIFIcK/Utility 
+#USER_LIBS_LIST = ...
 
 USER_LIBS_LIST = 0
 

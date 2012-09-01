@@ -54,6 +54,9 @@ OBJCOPY = $(APP_TOOLS_PATH)/avr-objcopy
 SIZE    = $(APP_TOOLS_PATH)/avr-size
 NM      = $(APP_TOOLS_PATH)/avr-nm
 
+# Specific AVRDUDE location and options
+#
+AVRDUDE_COM_OPTS  = -D -p$(MCU) -C$(AVRDUDE_CONF)
 
 BOARD    = $(call PARSE_BOARD,$(BOARD_TAG),board)
 #LDSCRIPT = $(call PARSE_BOARD,$(BOARD_TAG),ldscript)
@@ -65,6 +68,16 @@ MCU_FLAG_NAME  = mmcu
 EXTRA_LDFLAGS  = 
 EXTRA_CPPFLAGS = -I$(VARIANT_PATH) -D$(PLATFORM_TAG)
 
+# Leonardo USB PID VID
+#
+USB_VID := $(call PARSE_BOARD,$(BOARD_TAG),build.vid)
+USB_PID := $(call PARSE_BOARD,$(BOARD_TAG),build.pid)
 
-
+ifneq ($(USB_PID),)
+ifneq ($(USB_VID),)
+    USB_FLAGS  = -DUSB_VID=$(USB_VID)
+    USB_FLAGS += -DUSB_PID=$(USB_PID)
+    USB_RESET  = $(UTILITIES_PATH)/serial1200.py
+endif
+endif
 

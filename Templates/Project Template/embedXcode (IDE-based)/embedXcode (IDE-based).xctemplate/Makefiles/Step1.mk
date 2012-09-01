@@ -47,6 +47,7 @@ $(info .    extension	$(SKETCH_EXTENSION))
 endif
 endif
 
+
 # Board selection
 # ----------------------------------
 # Board specifics defined in .xconfig file
@@ -98,8 +99,7 @@ MAPLE_PATH   = $(MAPLE_APP)/Contents/Resources/Java
 #
 TARGET       = embeddedcomputing
 USER_PATH   := $(wildcard ~)
-$(info .    user	$(USER_PATH))
-
+$(info .    user		$(USER_PATH))
 
 # main.cpp selection
 # = 1 takes local main.cpp
@@ -109,6 +109,12 @@ NO_CORE_MAIN_FUNCTION := 1
 # Builds directory
 #
 OBJDIR  = Builds
+
+# Function PARSE_BOARD data retrieval from boards.txt
+# result = $(call READ_BOARD_TXT,'boardname','parameter')
+#
+#$(info *** grep ^$(1).$(2) $(BOARDS_TXT) | cut -d = -f 2 )
+PARSE_BOARD = $(shell grep ^$(1).$(2) $(BOARDS_TXT) | cut -d = -f 2 )
 
 
 # Clean if new BOARD_TAG
@@ -168,12 +174,9 @@ endif
 # List of sub-paths to be excluded
 #
 EXCLUDE_NAMES  = Example example Examples examples Archive archive Archives archives Documentation documentation Reference reference
-EXCLUDE_NAMES += ArduinoTestSuite OneWire
+EXCLUDE_NAMES += ArduinoTestSuite OneWire USBCore USBDesc
 EXCLUDE_LIST   = $(addprefix %,$(EXCLUDE_NAMES))
 
-# Function PARSE_BOARD data retrieval from boards.txt
-# result = $(call READ_BOARD_TXT,'boardname','parameter')
+# Step 2
 #
-PARSE_BOARD = $(shell grep ^$(1).$(2) $(BOARDS_TXT) | cut -d = -f 2 )
-
 include $(MAKEFILE_PATH)/Step2.mk

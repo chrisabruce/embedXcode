@@ -5629,6 +5629,15 @@
 				<string>Utilities</string>
 			</array>
 		</dict>
+		<key>Utilities/serial1200.py</key>
+		<dict>
+			<key>Path</key>
+			<string>Utilities/serial1200.py</string>
+			<key>Group</key>
+			<array>
+				<string>Utilities</string>
+			</array>
+		</dict>
 	</dict>
 	<key>Nodes</key>
 	<array>
@@ -6143,6 +6152,7 @@
 		<string>About/README_peplin.txt</string>
 		<string>About/References.txt</string>
 		<string>Utilities/reset.py</string>
+		<string>Utilities/serial1200.py</string>
 		<string>Utilities/doxyfile</string>
 	</array>
 	<key>Project</key>

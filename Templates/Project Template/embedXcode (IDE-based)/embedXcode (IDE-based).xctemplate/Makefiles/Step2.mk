@@ -195,6 +195,10 @@ SYS_OBJS     += $(wildcard $(patsubst %,%/*.o,$(USER_LIBS))) # */
 CPPFLAGS      = -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU) -I$(CORE_LIB_PATH) \
 			$(SYS_INCLUDES) -g -Os -w -Wall -ffunction-sections -fdata-sections $(EXTRA_CPPFLAGS)
 
+ifdef USB_FLAGS
+    CPPFLAGS += $(USB_FLAGS)
+endif    
+
 ifdef USE_GNU99
 CFLAGS        = -std=gnu99
 endif
@@ -402,6 +406,14 @@ endif
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
 $(info .    variant		$(VARIANT)) 
+
+ifneq ($(USB_PID),)
+ifneq ($(USB_VID),)
+    $(info .    USB VID	$(USB_VID))
+    $(info .    USB PID	$(USB_PID))
+endif
+endif
+
 $(info  ---- info ----)
 $(info Board)
 $(info .    name		$(call PARSE_BOARD,$(BOARD_TAG),name))
@@ -537,6 +549,11 @@ ifeq ($(UPLOADER),dfu-util)
 		$(DFU_RESET)
 		sleep 1
 endif
+ifdef USB_RESET
+		$(USB_RESET) $(AVRDUDE_PORT)
+		sleep 1
+endif
+
 
 #		@if [ -z "$(AVRDUDE_PORT)" ]; then \
 #			echo "No Arduino-compatible TTY device found -- exiting"; exit 2; \

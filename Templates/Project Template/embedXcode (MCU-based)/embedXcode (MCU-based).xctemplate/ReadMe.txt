@@ -17,7 +17,7 @@
 
   embedXcode
   ----------------------------------
-  Embedded Computing Template on Xcode 4.3
+  Embedded Computing Template on Xcode 4
   Copyright © Rei VILO, 2010-2012
   Licence CC = BY NC SA
   http://embedXcode.weebly.com/

@@ -37,7 +37,7 @@
 
 
 // Core library - MCU-based
-#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
+#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) || defined(__AVR_ATmega32U4__) // Arduino specific
   #if defined(ARDUINO) && (ARDUINO >= 100)
   #include "Arduino.h" // for Arduino 1.0
   #else
@@ -73,7 +73,7 @@ uint8_t LED1;
 // Add setup code 
 void setup() {
   // LED1 pin number
-#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__) // Arduino specific 
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega32U4__) // Arduino specific 
   LED1 = 13; 
 #elif defined(__PIC32MX__) // chipKIT specific
   LED1 = 13;

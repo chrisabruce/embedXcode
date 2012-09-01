@@ -24,7 +24,7 @@
 
 
 // Core library - MCU-based
-#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) // Arduino specific
+#if defined (__AVR_ATmega328P__) || defined (__AVR_ATmega2560__) || defined(__AVR_ATmega32U4__) // Arduino specific
   #if defined(ARDUINO) && (ARDUINO >= 100)
   #include "Arduino.h" // for Arduino 1.0
   #else
@@ -47,13 +47,26 @@
 
 int main(void)
 {
- #if defined(__AVR_ATmega644P__) // Wiring specific
-    boardInit();
-#else    
-    init();
+#if defined(__AVR_ATmega644P__) // Wiring specific
+  boardInit();
+#else
+  init();
+  
+#if defined(USBCON) // Arduino 1.0 specific
+  USBDevice.attach();
 #endif
-
-    setup();
-    for (;;) loop();
-    return 0;
+  
+#endif
+  
+  setup();
+  for (;;) {
+    
+    loop();
+    
+#if defined(ARDUINO) && (ARDUINO >= 100) // Arduino 1.0 specific
+    if (serialEventRun) serialEventRun();
+#endif
+  }
+  
+  return 0;
 }

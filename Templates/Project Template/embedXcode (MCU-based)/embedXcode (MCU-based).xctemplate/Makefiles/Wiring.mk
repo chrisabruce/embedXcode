@@ -61,7 +61,6 @@ AVRDUDE           = $(AVRDUDE_PATH)/avr/bin/avrdude
 AVRDUDE_CONF      = $(AVRDUDE_PATH)/avr/bin/avrdude.conf
 AVRDUDE_COM_OPTS  = -D -p$(MCU) -C$(AVRDUDE_CONF)
 
-
 BOARD        = $(call PARSE_BOARD,$(BOARD_TAG),board)
 #LDSCRIPT = $(call PARSE_BOARD,$(BOARD_TAG),ldscript)
 VARIANT      = $(call PARSE_BOARD,$(BOARD_TAG),build.hardware)

@@ -22,6 +22,7 @@
 // ----------------------------------
 //
 
+
 // Core library - IDE-based
 #if defined(WIRING) // Wiring specific - official
 #include "Wiring.h"
@@ -45,13 +46,26 @@
 
 int main(void)
 {
- #if defined(__AVR_ATmega644P__) // Wiring specific
-    boardInit();
-#else    
-    init();
+#if defined(__AVR_ATmega644P__) // Wiring specific
+  boardInit();
+#else
+  init();
+  
+#if defined(USBCON) // Arduino 1.0 specific
+  USBDevice.attach();
 #endif
-
-    setup();
-    for (;;) loop();
-    return 0;
+  
+#endif
+  
+  setup();
+  for (;;) {
+    
+    loop();
+    
+#if defined(ARDUINO) && (ARDUINO >= 100) // Arduino 1.0 specific
+    if (serialEventRun) serialEventRun();
+#endif
+  }
+  
+  return 0;
 }
