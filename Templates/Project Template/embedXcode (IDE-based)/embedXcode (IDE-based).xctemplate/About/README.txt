@@ -3,10 +3,6 @@
 	----------------------------------
 	Embedded Computing Template on Xcode 4
 
-	mpideXcode
-	----------------------------------
-	Embedded Computing Project on Xcode 4
-
 
 	© Rei VILO, 2010-2012
 	CC = BY NC SA
