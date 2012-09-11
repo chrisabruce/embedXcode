@@ -1,7 +1,7 @@
 
 	embedXcode
 	----------------------------------
-	Embedded Computing Template on Xcode 4
+	Embedded Computing on Xcode 4
 
 
 	© Rei VILO, 2010-2012
