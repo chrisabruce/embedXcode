@@ -42,13 +42,13 @@
 #APP_LIBS_LIST = Wire Wire/utility EEPROM Ethernet Ethernet/utility \
 	SPI Firmata LiquidCrystal Matrix Sprite SD SD/utility Servo SoftwareSerial Stepper 
 
-APP_LIBS_LIST = 0
+APP_LIBS_LIST = 
 
 # List users libraries here 
 #
 #USER_LIBS_LIST = ...
 
-USER_LIBS_LIST = 0
+USER_LIBS_LIST = 
 
 
 MAKEFILE_PATH  = $(CURDIR)/Makefiles
