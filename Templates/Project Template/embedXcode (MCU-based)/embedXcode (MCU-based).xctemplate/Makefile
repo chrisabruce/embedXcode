@@ -29,6 +29,11 @@
 # 
 #SKETCHBOOK_DIR =
 
+# SERIAL_BAUDRATE for the serial console, 9600 by default
+# Uncomment and specify another speed
+#
+#SERIAL_BAUDRATE = 19200
+
 
 # Libraries
 # ----------------------------------
