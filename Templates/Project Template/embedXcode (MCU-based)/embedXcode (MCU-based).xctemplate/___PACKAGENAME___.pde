@@ -47,7 +47,7 @@
 #include "WProgram.h"
 #elif defined(__AVR_ATmega644P__) // Wiring specific
 #include "Wiring.h"
-#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) // LaunchPad specific
+#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) || defined(__MSP430FR5739__) // LaunchPad specific
 #include "Energia.h"
 #elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
 #include "WProgram.h"	
@@ -63,7 +63,7 @@
 /// @brief	Name of the LED
 /// @details	Each board has a LED but connected to a different pin
 ///
-uint8_t LED1;
+uint8_t myLED;
 
 
 ///
@@ -72,20 +72,20 @@ uint8_t LED1;
 ///
 // Add setup code 
 void setup() {
-  // LED1 pin number
+  // myLED pin number
 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega32U4__) // Arduino specific 
-  LED1 = 13; 
+  myLED = 13; 
 #elif defined(__PIC32MX__) // chipKIT specific
-  LED1 = 13;
+  myLED = 13;
 #elif defined(__AVR_ATmega644P__) // Wiring specific
-  LED1 = 15; 
-#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) // LaunchPad specific
-  LED1 = 2; 
+  myLED = 15; 
+#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) || defined(__MSP430FR5739__) // LaunchPad specific
+  myLED = RED_LED; 
 #elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
-  LED1 = BOARD_LED_PIN; 
+  myLED = BOARD_LED_PIN; 
 #endif
 
-  pinMode(LED1, OUTPUT);     
+  pinMode(myLED, OUTPUT);     
 }
 
 ///
@@ -94,6 +94,6 @@ void setup() {
 ///
 // Add loop code 
 void loop() {
-  blink(LED1, 3, 333);
+  blink(myLED, 3, 333);
   delay(1000);    
 }

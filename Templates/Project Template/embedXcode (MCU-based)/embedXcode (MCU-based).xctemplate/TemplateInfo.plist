@@ -5,7 +5,7 @@
 	<key>Kind</key>
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Identifier</key>
-	<string>reivilo.embedXcode_MCU.xcode4.test</string>
+	<string>reivilo.embedXcode_MCU.xcode4.template</string>
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
@@ -2717,6 +2717,13 @@
 			<key>Path</key>
 			<string>Config/Arduino Uno.xcconfig</string>
 		</dict>
+		<key>Config/Arduino Leonardo.xcconfig</key>
+		<dict>
+			<key>Group</key>
+			<string>Config</string>
+			<key>Path</key>
+			<string>Config/Arduino Leonardo.xcconfig</string>
+		</dict>
 		<key>Config/Maple Flash (revision 3+).xcconfig</key>
 		<dict>
 			<key>Group</key>
@@ -2744,6 +2751,13 @@
 			<string>Config</string>
 			<key>Path</key>
 			<string>Config/LaunchPad with msp430g2452.xcconfig</string>
+		</dict>
+		<key>Config/FraunchPad with MSP430FR5739.xcconfig</key>
+		<dict>
+			<key>Group</key>
+			<string>Config</string>
+			<key>Path</key>
+			<string>Config/FraunchPad with MSP430FR5739.xcconfig</string>
 		</dict>
 		<key>Config/LaunchPad with msp430g2553.xcconfig</key>
 		<dict>
@@ -5746,6 +5760,15 @@
 				<string>Utilities</string>
 			</array>
 		</dict>
+		<key>Utilities/pdf.sh</key>
+		<dict>
+			<key>Path</key>
+			<string>Utilities/pdf.sh</string>
+			<key>Group</key>
+			<array>
+				<string>Utilities</string>
+			</array>
+		</dict>
 	</dict>
 	<key>Nodes</key>
 	<array>
@@ -6244,10 +6267,12 @@
 		<string>Config/Arduino mega2560.xcconfig</string>
 		<string>Config/Arduino mini pro.xcconfig</string>
 		<string>Config/Arduino Uno.xcconfig</string>
+		<string>Config/Arduino Leonardo.xcconfig</string>
 		<string>Config/chipKIT Uno32.xcconfig</string>
 		<string>Config/LaunchPad with msp430g2553.xcconfig</string>
 		<string>Config/LaunchPad with msp430g2231.xcconfig</string>
 		<string>Config/LaunchPad with msp430g2452.xcconfig</string>
+		<string>Config/FraunchPad with MSP430FR5739.xcconfig</string>
 		<string>Config/Maple Flash (revision 3+).xcconfig</string>
 		<string>Config/Sparkfun Uno.xcconfig</string>
 		<string>Config/Wiring S.xcconfig</string>
@@ -6271,6 +6296,7 @@
 		<string>About/References.txt</string>
 		<string>Utilities/reset.py</string>
 		<string>Utilities/serial1200.py</string>
+		<string>Utilities/pdf.sh</string>
 		<string>Utilities/doxyfile</string>
 	</array>
 	<key>Project</key>
@@ -6473,6 +6499,19 @@
 			<string>popup</string>
 			<key>Units</key>
 			<dict>
+				<key>Arduino Leonardo</key>
+				<dict>
+					<key>Project</key>
+					<dict>
+						<key>BasedOn</key>
+						<dict>
+							<key>Debug</key>
+							<string>Config/Arduino Leonardo.xcconfig</string>
+							<key>Release</key>
+							<string></string>
+						</dict>
+					</dict>
+				</dict>
 				<key>Arduino mega2560</key>
 				<dict>
 					<key>Project</key>
@@ -6559,6 +6598,19 @@
 						<dict>
 							<key>Debug</key>
 							<string>Config/LaunchPad with msp430g2553.xcconfig</string>
+							<key>Release</key>
+							<string></string>
+						</dict>
+					</dict>
+				</dict>
+				<key>FraunchPad with MSP430FR5739</key>
+				<dict>
+					<key>Project</key>
+					<dict>
+						<key>BasedOn</key>
+						<dict>
+							<key>Debug</key>
+							<string>Config/FraunchPad with MSP430FR5739.xcconfig</string>
 							<key>Release</key>
 							<string></string>
 						</dict>

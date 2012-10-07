@@ -1,21 +1,7 @@
-*.pde
-*.ino
 Builds/
-embedXcode/
-UserData/
-File Templates/
-Other/
-Config/
-Sketchbook/
-*.cpp
-*.h
-*.icns
-*.plist
-TemplateInfo.plist
-___PACKAGENAME___.pde
-embedXcode (MCU-based)/
 .DS_Store
 *.xcuserdatad
+embedXcode/
 
 # .gitignore
 

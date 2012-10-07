@@ -1,7 +1,7 @@
 #
 # embedXcode
 # ----------------------------------
-# Embedded Computing on Xcode 4.3
+# Embedded Computing on Xcode 4
 #
 # Copyright © Rei VILO, 2010-2012
 # Licence CC = BY NC SA
@@ -46,9 +46,10 @@ DOCSET_PATH     = $(USER_PATH)/Library/Developer/Shared/Documentation/DocSets/$(
 LOAD_UTIL_PATH  = $(UTILITIES_PATH)/loadDocSet.scpt
 
 PDF_PATH        = $(DOCUMENTS_PATH)/latex/refman.pdf
+TEX_PATH        = $(DOCUMENTS_PATH)/latex/refman.tex
 
 $(info .    html       	$(GENERATE_HTML))
-#$(info .    pdf        	$(GENERATE_PDF))
+$(info .    pdf        	$(GENERATE_PDF))
 $(info .    docset  	$(GENERATE_DOCSET))
 $(info .    bundle id  	$(BUNDLE_ID))
 

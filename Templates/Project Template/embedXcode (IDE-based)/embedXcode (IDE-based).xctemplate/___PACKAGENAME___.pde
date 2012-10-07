@@ -23,6 +23,7 @@
 #elif defined(MAPLE_IDE) // Maple specific
 #include "WProgram.h"   
 #elif defined(MPIDE) // chipKIT specific
+/// @version	<#version#>
 #include "WProgram.h"
 #elif defined(ENERGIA) // LaunchPad specific
 #include "Energia.h"

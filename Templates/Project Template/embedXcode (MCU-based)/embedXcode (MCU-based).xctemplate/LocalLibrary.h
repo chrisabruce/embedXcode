@@ -29,7 +29,7 @@
 #include "WProgram.h"
 #elif defined(__AVR_ATmega644P__) // Wiring specific
 #include "Wiring.h"
-#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) // LaunchPad specific
+#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) || defined(__MSP430FR5739__) // LaunchPad specific
 #include "Energia.h"
 #elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
 #include "WProgram.h"	
