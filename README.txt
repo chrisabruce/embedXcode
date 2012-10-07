@@ -1,7 +1,7 @@
 
 	embedXcode
 	----------------------------------
-	Embedded Computing on Xcode 4
+	Embedded Computing Template on Xcode 4
 
 
 	© Rei VILO, 2010-2012
@@ -9,20 +9,22 @@
 
 	• Documentation
 	http://embedXcode.weebly.com/
+
+	• Installation package
+	http://embedXcode.weebly.com/download
 	
-	• GitHub repositories
+	• GitHub repository
 	https://github.com/rei-vilo/embedXcode
 	
 
-embedXcode • Sep 01, 2012 release 15 • Support for Leonardo
-Installation Guide • Sep 01, 2012 release 11 • Support for Leonardo
+embedXcode • Sep 25, 2012 release 16 • Support for FraunchPad
+Installation Guide • Sep 25, 2012 release 13 • Support for FraunchPad
 
 
 Installation
 ----------------------------------
-Check and create ~/Library/Developer/Xcode
-Copy the folder Templates into ~/Library/Developer/Xcode
-Read enclosed Installation Guide
+Launch the embedXcode package.
+Read enclosed Installation Guide.
 
 
 Contributions

@@ -1,7 +1,7 @@
 #
 # embedXcode
 # ----------------------------------
-# Embedded Computing on Xcode 4.3
+# Embedded Computing on Xcode 4
 #
 # Copyright © Rei VILO, 2010-2012
 # Licence CC = BY NC SA
@@ -52,6 +52,7 @@ APP_LIBS_LIST =
 # List users libraries here 
 #
 #USER_LIBS_LIST = ...
+#
 
 USER_LIBS_LIST = 
 

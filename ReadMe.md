@@ -3,7 +3,7 @@
 
 
 
-Supported boards: Arduino, chipKIT, Wiring, LaunchPad and Maple
+Supported boards: Arduino, chipKIT, Wiring, LaunchPad FraunchPad and Maple
 
 
 © Rei VILO, 2010-2012
@@ -22,7 +22,7 @@ For faster and easier installation, consider the native package [installer](http
 
 [Website](http://embedXcode.weebly.com/)
 
-[Installation Guide and User Manual](http://embedXcode.weebly.com/tutorial.html)
+[User Manual](http://embedXcode.weebly.com/tutorial.html)
     
 
 ## References

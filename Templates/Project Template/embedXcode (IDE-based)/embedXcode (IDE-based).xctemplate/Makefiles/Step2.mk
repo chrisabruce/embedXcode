@@ -1,7 +1,7 @@
 #
 # embedXcode
 # ----------------------------------
-# Embedded Computing on Xcode 4.3
+# Embedded Computing on Xcode 4
 #
 # Copyright © Rei VILO, 2010-2012
 # Licence CC = BY NC SA
@@ -462,13 +462,19 @@ document1:
 		@echo "---- docset generated ----"
 
 document2:
+ifeq ($(GENERATE_PDF),YES)
+		@if [ -f $(TEX_PATH) ]; then Utilities/pdf.sh > Utilities/pdf.log; echo "---- pdf created ---- "; fi
+endif
+
+document3:
+		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi; 
+
+document4:
 ifeq ($(GENERATE_DOCSET),YES)
 		make -C $(DOCUMENTS_PATH)/html install > ./Utilities/docset.log
 		@echo "---- docset installed ----"
 endif
 
-document3:
-		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi; 
 
 
 # !!! .a file
@@ -528,7 +534,7 @@ raw_upload:
 ifeq ($(UPLOADER),avrdude)
 		$(AVRDUDE) $(AVRDUDE_COM_OPTS) $(AVRDUDE_OPTS) -Uflash:w:$(TARGET_HEX):i
 else ifeq ($(UPLOADER),mspdebug)
-		$(MSPDEBUG) $(MSPDEBUG_OPTS) "prog $(TARGET_HEX)"
+		$(MSPDEBUG) $(MSPDEBUG_OPTS) "$(MSPDEBUG_COMMAND) $(TARGET_HEX)"
 else ifeq ($(UPLOADER),dfu-util)
 		$(DFU_UTIL) $(DFU_UTIL_OPTS) -D $(TARGET_BIN) -R
 		sleep 4
@@ -550,8 +556,12 @@ ifeq ($(UPLOADER),dfu-util)
 		sleep 1
 endif
 ifdef USB_RESET
-		$(USB_RESET) $(AVRDUDE_PORT)
+# Method 1
+		stty -f $(AVRDUDE_PORT) speed 1200
 		sleep 1
+# Method 2
+#		$(USB_RESET) $(AVRDUDE_PORT)
+#		sleep 1
 endif
 
 
@@ -628,8 +638,7 @@ boards:
 		@echo "---- end ---- "
 
 
-document:	document0 document1 document2 document3
+document:	document0 document1 document2 document3 document4
 
-		
                 
 .PHONY:	all clean depends upload raw_upload reset serial show_boards headers size document

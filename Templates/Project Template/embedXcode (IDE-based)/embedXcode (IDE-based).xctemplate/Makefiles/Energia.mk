@@ -1,7 +1,7 @@
 #
 # embedXcode
 # ----------------------------------
-# Embedded Computing on Xcode 4.3
+# Embedded Computing on Xcode 4
 #
 # Copyright © Rei VILO, 2010-2012
 # Licence CC = BY NC SA
@@ -24,6 +24,14 @@ UPLOADER          = mspdebug
 MSPDEBUG_PATH     = $(APPLICATION_PATH)/hardware/tools
 MSPDEBUG          = $(MSPDEBUG_PATH)/msp430/mspdebug/mspdebug
 MSPDEBUG_OPTS     = rf2500 --force-reset
+
+# FraunchPad MSP430FR5739 requires a specific command
+#
+ifeq ($(BOARD_TAG), lpmsp430fr5739)
+    MSPDEBUG_COMMAND = load
+else
+    MSPDEBUG_COMMAND = prog
+endif
 
 APP_TOOLS_PATH   := $(APPLICATION_PATH)/hardware/tools/msp430/bin
 CORE_LIB_PATH    := $(APPLICATION_PATH)/hardware/msp430/cores/msp430
