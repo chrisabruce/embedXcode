@@ -467,7 +467,9 @@ ifeq ($(GENERATE_PDF),YES)
 endif
 
 document3:
+ifeq ($(GENERATE_DOCSET),YES)
 		@if [ $(shell osascript '$(LOAD_UTIL_PATH)') = true ]; then echo "---- docset loaded ---- "; else echo "---- docset not loaded ---- "; fi; 
+endif
 
 document4:
 ifeq ($(GENERATE_DOCSET),YES)
