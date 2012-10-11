@@ -3,7 +3,7 @@
 
 
 
-Supported boards: Arduino, chipKIT, Wiring, LaunchPad FraunchPad and Maple
+Supported boards: Arduino, chipKIT, Wiring, LaunchPad MSP430G2xxx, FraunchPad MSP430FR5739 and Maple
 
 
 © Rei VILO, 2010-2012
