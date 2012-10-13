@@ -560,10 +560,10 @@ endif
 ifdef USB_RESET
 # Method 1
 		stty -f $(AVRDUDE_PORT) speed 1200
-		sleep 1
+		sleep 1.5
 # Method 2
 #		$(USB_RESET) $(AVRDUDE_PORT)
-#		sleep 1
+#		sleep 1.5
 endif
 
 
