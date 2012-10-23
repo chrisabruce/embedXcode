@@ -5,11 +5,11 @@
 	<key>Kind</key>
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Identifier</key>
-	<string>reivilo.embedXcode_MCU.xcode4.template</string>
+	<string>reivilo.embedXcode_IDE.xcode4.template</string>
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
-	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards, with #include library based on MCU.</string>
+	<string>This template builds an embedded computing sketch for Arduino, chipKIT, Wiring, LaunchPad and Maple boards, with #include library based on IDE.</string>
 	<key>SorterOrder</key>
 	<integer>1</integer>
 	<key>Platforms</key>
@@ -2900,13 +2900,6 @@
 			<key>Path</key>
 			<string>LocalLibrary.h</string>
 		</dict>
-		<key>___PACKAGENAME___.pde</key>
-		<dict>
-			<key>AllowedTypes</key>
-			<string>public.c-plus-plus-source</string>
-			<key>Path</key>
-			<string>___PACKAGENAME___.pde</string>
-		</dict>
 		<key>LocalLibrary.cpp</key>
 		<dict>
 			<key>Path</key>
@@ -5773,7 +5766,6 @@
 	<key>Nodes</key>
 	<array>
 		<string>main.cpp</string>
-		<string>___PACKAGENAME___.pde</string>
 		<string>LocalLibrary.cpp</string>
 		<string>LocalLibrary.h</string>
 		<string>Makefile</string>
@@ -6323,10 +6315,103 @@
 			<string>$(TARGET_NAME)</string>
 			<key>SKETCHBOOK_DIR</key>
 			<string></string>
+			<key>SKETCH_EXTENSION</key>
+			<string>___VARIABLE_ExtensionConfigName:identifier___</string>
 		</dict>
 	</dict>
 	<key>Targets</key>
 	<array>
+		<dict>
+			<key>Name</key>
+			<string>All</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolArgsString</key>
+			<string>all -C $(PROJECT)</string>
+			<key>CustomBuildSettings</key>
+			<dict>
+				<key>BuildToolDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildWorkingDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildToolWorkingDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildToolWorkingDir</key>
+				<string>$(PROJECT)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Build</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>build -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Document</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>document -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Boards</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolArgsString</key>
+			<string>boards -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Serial</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>serial -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Upload</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>upload -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Clean</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>clean -C $(PROJECT)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Make</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>BuildToolArgsString</key>
+			<string>make -C $(PROJECT)</string>
+		</dict>
 		<dict>
 			<key>ProductType</key>
 			<string>com.apple.product-type.tool</string>
@@ -6346,7 +6431,6 @@
 					<string>Sources</string>
 					<key>Name</key>
 					<array>
-						<string>___PACKAGENAME___.pde</string>
 						<string>Arduino/cores/arduino/binary.h</string>
 						<string>Arduino/cores/arduino/binary.h</string>
 						<string>Arduino/cores/arduino/HardwareSerial.h</string>
@@ -6390,97 +6474,6 @@
 				</dict>
 			</array>
 		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Boards</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolArgsString</key>
-			<string>boards -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>All</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolArgsString</key>
-			<string>all -C $(PROJECT)</string>
-			<key>CustomBuildSettings</key>
-			<dict>
-				<key>BuildToolDirectory</key>
-				<string>$(PROJECT)</string>
-				<key>BuildWorkingDirectory</key>
-				<string>$(PROJECT)</string>
-				<key>BuildToolWorkingDirectory</key>
-				<string>$(PROJECT)</string>
-				<key>BuildToolWorkingDir</key>
-				<string>$(PROJECT)</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Serial</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>serial -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Upload</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>upload -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Clean</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>clean -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Make</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>make -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Build</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>build -C $(PROJECT)</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Document</string>
-			<key>TargetType</key>
-			<string>Legacy</string>
-			<key>BuildToolPath</key>
-			<string>make</string>
-			<key>BuildToolArgsString</key>
-			<string>document -C $(PROJECT)</string>
-		</dict>
 	</array>
 	<key>Options</key>
 	<array>
@@ -6499,6 +6492,19 @@
 			<string>popup</string>
 			<key>Units</key>
 			<dict>
+				<key>Arduino Uno</key>
+				<dict>
+					<key>Project</key>
+					<dict>
+						<key>BasedOn</key>
+						<dict>
+							<key>Debug</key>
+							<string>Config/Arduino Uno.xcconfig</string>
+							<key>Release</key>
+							<string></string>
+						</dict>
+					</dict>
+				</dict>
 				<key>Arduino Leonardo</key>
 				<dict>
 					<key>Project</key>
@@ -6533,19 +6539,6 @@
 						<dict>
 							<key>Debug</key>
 							<string>Config/Arduino mini pro.xcconfig</string>
-							<key>Release</key>
-							<string></string>
-						</dict>
-					</dict>
-				</dict>
-				<key>Arduino Uno</key>
-				<dict>
-					<key>Project</key>
-					<dict>
-						<key>BasedOn</key>
-						<dict>
-							<key>Debug</key>
-							<string>Config/Arduino Uno.xcconfig</string>
 							<key>Release</key>
 							<string></string>
 						</dict>
@@ -6654,6 +6647,74 @@
 							<string></string>
 						</dict>
 					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>pde</string>
+			<key>Description</key>
+			<string>Which extension to use</string>
+			<key>Identifier</key>
+			<string>ExtensionConfigName</string>
+			<key>Name</key>
+			<string>Extension</string>
+			<key>SortOrder</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Units</key>
+			<dict>
+				<key>pde</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>___PROJECTNAMEASIDENTIFIER___.pde</key>
+						<dict>
+							<key>AllowedTypes</key>
+							<string>public.c-plus-plus-source</string>
+							<key>Path</key>
+							<string>___PROJECTNAMEASIDENTIFIER___.pde</string>
+						</dict>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>___PROJECTNAMEASIDENTIFIER___.pde</string>
+					</array>
+				</dict>
+				<key>ino</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>___PROJECTNAMEASIDENTIFIER___.ino</key>
+						<dict>
+							<key>AllowedTypes</key>
+							<string>public.c-plus-plus-source</string>
+							<key>Path</key>
+							<string>___PROJECTNAMEASIDENTIFIER___.ino</string>
+						</dict>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>___PROJECTNAMEASIDENTIFIER___.ino</string>
+					</array>
+				</dict>
+				<key>cpp</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>___PROJECTNAMEASIDENTIFIER___.cpp</key>
+						<dict>
+							<key>AllowedTypes</key>
+							<string>public.c-plus-plus-source</string>
+							<key>Path</key>
+							<string>___PROJECTNAMEASIDENTIFIER___.cpp</string>
+						</dict>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>___PROJECTNAMEASIDENTIFIER___.cpp</string>
+					</array>
 				</dict>
 			</dict>
 		</dict>

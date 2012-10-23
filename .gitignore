@@ -1,7 +1,7 @@
 Builds/
 .DS_Store
 *.xcuserdatad
-embedXcode/
+/embedXcode/
 
 # .gitignore
 
