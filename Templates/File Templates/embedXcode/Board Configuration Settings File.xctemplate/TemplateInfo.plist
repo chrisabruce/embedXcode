@@ -3,15 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>Text</string>
+	<string>BoardConfiguration</string>
 	<key>Description</key>
-	<string>A plain text file.</string>
+	<string>An empty board configuration settings file for embedXcode.</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>MainTemplateFile</key>
-	<string>___FILENAME___.txt</string>
+	<string>___FILEBASENAME___.config</string>
 	<key>Summary</key>
-	<string>A plain text file</string>
+	<string>An empty board configuration settings file for embedXcode.</string>
+	<key>SortOrder</key>
+	<string>1</string>
 	<key>Platforms</key>
 	<array>
 		<string>com.apple.platform.macosx</string>

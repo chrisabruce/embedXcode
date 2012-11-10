@@ -7,7 +7,8 @@
 		<string>Preprocessor</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// Core library - IDE-based#if defined(WIRING) // Wiring specific#include "Wiring.h"#elif defined(MAPLE_IDE) // Maple specific#include "WProgram.h"   #elif defined(MPIDE) // chipKIT specific#include "WProgram.h"#elif defined(ENERGIA) // LaunchPad specific#include "Energia.h"#elif defined(ARDUINO) &amp;&amp; (ARDUINO &gt;= 100) // Arduino 1.0 specific#include "Arduino.h"#elif defined(ARDUINO) &amp;&amp; (ARDUINO &lt; 100) // Arduino 23 specific#include "WProgram.h"#else // error#error Platform not defined#endif
+	<string>// Core library - IDE-based#if defined(WIRING) // Wiring specific#include "Wiring.h"#elif defined(MAPLE_IDE) // Maple specific#include "WProgram.h"   #elif defined(MPIDE) // chipKIT specific#include "WProgram.h"#elif defined(ENERGIA) // LaunchPad, FraunchPad and StellarPad specific#include "Energia.h"
+#elif defined(CORE_TEENSY) // Teensy specific#include "WProgram.h"#elif defined(ARDUINO) &amp;&amp; (ARDUINO &gt;= 100) // Arduino 1.0 and 1.5 specific#include "Arduino.h"#elif defined(ARDUINO) &amp;&amp; (ARDUINO &lt; 100) // Arduino 23 specific#include "WProgram.h"#else // error#error Platform not defined#endif
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>8094FFEF-D0B0-44C0-81FD-9002B5EDEC8F</string>

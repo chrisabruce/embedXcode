@@ -3,15 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>Text</string>
+	<string>Library</string>
 	<key>Description</key>
-	<string>A plain text file.</string>
+	<string>A library for embedXcode project, including a header file and a C++ file.</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>MainTemplateFile</key>
-	<string>___FILENAME___.txt</string>
+	<string>___FILEBASENAME___.h
+</string>
+	<key>SortOrder</key>
+	<string>5</string>
+	<key>CounterpartTemplateFile</key>
+	<string>___FILEBASENAME___.cpp</string>
 	<key>Summary</key>
-	<string>A plain text file</string>
+	<string>A library for embedXcode project.</string>
 	<key>Platforms</key>
 	<array>
 		<string>com.apple.platform.macosx</string>
