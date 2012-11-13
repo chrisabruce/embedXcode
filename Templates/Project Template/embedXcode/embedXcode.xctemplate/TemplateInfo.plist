@@ -6506,10 +6506,10 @@
 			<key>Group</key>
 			<string>Makefiles</string>
 		</dict>
-		<key>Makefiles/Teensy12.mk</key>
+		<key>Makefiles/Teensy2.mk</key>
 		<dict>
 			<key>Path</key>
-			<string>Makefiles/Teensy12.mk</string>
+			<string>Makefiles/Teensy2.mk</string>
 			<key>Group</key>
 			<string>Makefiles</string>
 		</dict>
@@ -12021,7 +12021,7 @@
 		<string>Makefiles/Step1.mk</string>
 		<string>Makefiles/Step2.mk</string>
 		<string>Makefiles/Teensy.mk</string>
-		<string>Makefiles/Teensy12.mk</string>
+		<string>Makefiles/Teensy2.mk</string>
 		<string>Makefiles/Teensy3.mk</string>
 		<string>Makefiles/Avrdude.mk</string>
 		<string>Makefiles/Doxygen.mk</string>

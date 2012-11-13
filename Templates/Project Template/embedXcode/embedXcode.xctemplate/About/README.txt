@@ -7,8 +7,11 @@
 	© Rei VILO, 2010-2012
 	CC = BY NC SA
 
+	• Website
+	http://embedXcode.weebly.com
+
 	• Documentation
-	http://embedXcode.weebly.com/
+	http://embedXcode.weebly.com/tutorial
 
 	• Installation package
 	http://embedXcode.weebly.com/download

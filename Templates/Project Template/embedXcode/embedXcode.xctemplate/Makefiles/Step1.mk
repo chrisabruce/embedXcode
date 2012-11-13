@@ -47,21 +47,6 @@ ifneq ($(SKETCH_EXTENSION),cpp)
 endif
 
 
-
-# Early info
-#
-ifneq ($(MAKECMDGOALS),boards)
-    ifneq ($(MAKECMDGOALS),clean)
-        $(info  ==== info ====)
-        $(info Project)
-        $(info .    target		$(MAKECMDGOALS))
-        $(info .    name		$(PROJECT_NAME))
-        $(info .    tag 		$(BOARD_TAG))
-        $(info .    extension	$(SKETCH_EXTENSION))
-    endif
-endif
-
-
 # Board selection
 # ----------------------------------
 # Board specifics defined in .xconfig file
@@ -193,37 +178,16 @@ ifneq ($(MAKECMDGOALS),boards)
 endif
 
 
-ifneq ($(MAKECMDGOALS),boards)
-    ifneq ($(MAKECMDGOALS),clean)
-        $(info .    user		$(USER_PATH))
-
-        ifneq ($(PLATFORM),Wiring)
-            $(info .    ide	     	$(PLATFORM))
-
-            ifneq ($(PLATFORM),MapleIDE)
-                $(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/version.txt))
-            else
-                $(info .    version 	$(shell cat $(APPLICATION_PATH)/lib/build-version.txt))
-            endif
-
-            ifneq ($(BUILD_CORE),)
-                $(info .    platform 	$(BUILD_CORE))
-            endif
-
-        endif
-    endif
-endif
-
 # Warnings
 #
-ifeq ($(BOARD_TAG),arduino_due_x)
-    $(warning *** Arduino 1.5 IDE in development)
-    $(warning *** Uploader bossac not tested)
-else ifeq ($(BOARD_TAG),lplm4f120h5qr)
-    $(warning *** Support for StellarPad by Energia in development)
-else ifeq ($(BOARD_TAG),teensy2)
-    $(warning *** Upload to teensy2 not tested)
-endif
+#ifeq ($(BOARD_TAG),arduino_due_x)
+#    $(warning *** Arduino 1.5 IDE in development)
+#    $(warning *** Uploader bossac not tested)
+#else ifeq ($(BOARD_TAG),lplm4f120h5qr)
+#    $(warning *** Support for StellarPad by Energia in development)
+#else ifeq ($(BOARD_TAG),teensy2)
+#    $(warning *** Upload to teensy2 not tested)
+#endif
 
 
 

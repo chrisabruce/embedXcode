@@ -8,8 +8,6 @@
 	CC = BY NC SA	
 	http://embedXcode.weebly.com/
 	
-embedXcode • Oct 26, 2012 release 18 • Support for Arduino Due
-embedXcode • Oct 28, 2012 release 19 • Support for StellarPad
-embedXcode • Nov 09, 2012 release 20 • Support for Teensy 3.0
-User Manual • Nov 09, 2012 release 16 • Updated with new boards
+	
+
 	

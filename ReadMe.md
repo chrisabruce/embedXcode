@@ -34,7 +34,3 @@ Double-click on the installation package
 
 See attached documents for detailed references
 
-
-----------------------------------
-End of file
-

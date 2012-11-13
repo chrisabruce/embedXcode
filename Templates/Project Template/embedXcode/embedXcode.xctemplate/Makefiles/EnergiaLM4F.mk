@@ -90,7 +90,7 @@ VARIANT_PATH = $(APPLICATION_PATH)/hardware/lm4f/variants/$(VARIANT)
 MCU_FLAG_NAME   = mcpu
 EXTRA_LDFLAGS   = -T$(CORE_LIB_PATH)/$(LDSCRIPT) -Wl,--gc-sections -Wl,-Map=$(OBJDIR)/lm4f.map
 EXTRA_LDFLAGS  += -mthumb --entry=ResetISR
-EXTRA_LDFLAGS  += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant -nostdlib -lc
+EXTRA_LDFLAGS  += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant -nostdlib
 
 EXTRA_CPPFLAGS  = $(addprefix -D, $(PLATFORM_TAG)) -D__LM4F120H5QR__ -I$(VARIANT_PATH)
 EXTRA_CPPFLAGS += -fno-exceptions -fno-rtti -mthumb

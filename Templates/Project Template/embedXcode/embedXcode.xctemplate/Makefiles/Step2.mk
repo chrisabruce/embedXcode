@@ -78,7 +78,7 @@ ifdef CORE_LIB_PATH
 endif
 
 
-# APPlication Arduino/chipKIT/Wiring/Energia/Maple libraries
+# APPlication Arduino/chipKIT/Energia/Maple/Teensy/Wiring libraries
 #
 ifndef APP_LIB_PATH
     APP_LIB_PATH  = $(APPLICATION_PATH)/libraries
@@ -236,7 +236,7 @@ ASFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -x assembler-with-cpp
 ifeq ($(BUILD_CORE),sam)
     LDFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -lm -Wl,--gc-sections,-u,main -Os $(EXTRA_LDFLAGS)
 else
-    LDFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -lm -Wl,-gc-sections -Os $(EXTRA_LDFLAGS)
+    LDFLAGS       = -$(MCU_FLAG_NAME)=$(MCU) -lm -Wl,--gc-sections -Os $(EXTRA_LDFLAGS)
 endif
 
 ifndef OBJCOPYFLAGS
@@ -256,7 +256,7 @@ endif
 # ----------------------------------
 #
 
-# 2- APPlication Arduino/chipKIT/Wiring/Energia/Maple library sources
+# 2- APPlication Arduino/chipKIT/Energia/Maple/Teensy/Wiring library sources
 #
 $(OBJDIR)/libs/%.o: $(APP_LIB_PATH)/%.cpp
 	$(call SHOW,"2.1-APP",$@,$<)
@@ -424,9 +424,10 @@ $(TARGET_ELF): 	$(OBJS)
 		$(call SHOW,"7.2-LINK",$@,.)
 		$(call TRACE,"7-LINK",$@,.)
 ifeq ($(BUILD_CORE),sam)
-		$(CXX) $(LDFLAGS) -o $@ -L$(OBJDIR) -Wl,--start-group $(SYSTEM_OBJS) $(LOCAL_OBJS) $(TARGET_A) -Wl,--end-group
+# Builds/syscalls_sam3.c.o needs to be mentioned again
+		$(CXX) $(LDFLAGS) -o $@ -L$(OBJDIR) -Wl,--start-group Builds/syscalls_sam3.o $(SYSTEM_OBJS) $(LOCAL_OBJS) $(TARGET_A) -Wl,--end-group
 else ifeq ($(VARIANT),stellarpad)
-		$(CXX) $(LDFLAGS) -o $@ $(LOCAL_OBJS) $(TARGET_A) -L$(OBJDIR)
+		$(CXX) $(LDFLAGS) -o $@ $(SYSTEM_OBJS) $(LOCAL_OBJS) $(TARGET_A) -L$(OBJDIR) -lc -lm -lgcc
 else ifeq ($(PLATFORM),MapleIDE)
 		$(CXX) $(LDFLAGS) -o $@ $(LOCAL_OBJS) $(TARGET_A) -L$(OBJDIR)
 else ifeq ($(BOARD_TAG),teensy3)
@@ -508,48 +509,78 @@ endif
 #
 # 0- Info
 # ***
-#
-$(call TRACE,"0-",)
+info:
+		$(call TRACE,"0-",)
+
 ifneq ($(MAKECMDGOALS),boards)
-    ifneq ($(MAKECMDGOALS),clean)
-        $(info .    variant		$(VARIANT))
+ifneq ($(MAKECMDGOALS),clean)
+		@cat $(CURDIR)/About/About.txt
 
-        ifneq ($(USB_PID),)
-                $(info .    USB VID	$(USB_VID))
-        endif
+		@echo ==== Info ====
+		@echo ---- Project ----
+		@echo 'Target		'$(MAKECMDGOALS)
+		@echo 'Name		'$(PROJECT_NAME)
+		@echo 'Tag			'$(BOARD_TAG)
+		@echo 'Extension		'$(SKETCH_EXTENSION)
 
-        ifneq ($(USB_VID),)
-            $(info .    USB PID	$(USB_PID))
-        endif
+		@echo 'User			'$(USER_PATH)
 
-        $(info  ---- info ----)
-        $(info Board)
-        $(info .    name		$(call PARSE_BOARD,$(BOARD_TAG),name))
-        $(info .    f_cpu		$(F_CPU))
-        $(info .    mcu  		$(MCU))
-        $(info Ports)
-        $(info .    uploader 	$(UPLOADER))
+ifneq ($(PLATFORM),Wiring)
+		@echo 'IDE			'$(PLATFORM)
 
-        ifeq ($(UPLOADER),avrdude)
-            $(info .    avrdude 	$(AVRDUDE_PORT))
-        endif
-
-        $(info .    serial		$(SERIAL_PORT))
-        $(info  ---- info ----)
-        $(info  Libraries)
-        $(info .     Core libraries)
-        $(info $(CORE_LIBS_LIST))
-
-        ifneq ($(BUILD_CORE_LIBS_LIST),)
-            $(info $(BUILD_CORE_LIBS_LIST))
-        endif
-
-        $(info .     Application libraries of Arduino/chipKIT/Wiring/Energia/Maple)
-        $(info $(APP_LIBS_LIST))
-        $(info .     User libraries from $(SKETCHBOOK_DIR))
-        $(info $(USER_LIBS_LIST))
-    endif
+ifneq ($(PLATFORM),MapleIDE)
+		@echo 'Version		'$(shell cat $(APPLICATION_PATH)/lib/version.txt)
+else
+		@echo 'Version		'$(shell cat $(APPLICATION_PATH)/lib/build-version.txt)
 endif
+endif
+
+ifneq ($(BUILD_CORE),)
+		@echo 'Platform		'$(BUILD_CORE)
+endif
+
+ifneq ($(VARIANT),)
+		@echo 'Variant		'$(VARIANT)
+endif
+
+ifneq ($(USB_PID),)
+		@echo 'USB VID		'$(USB_VID)
+endif
+
+ifneq ($(USB_VID),)
+		@echo 'USB PID		'$(USB_PID)
+endif
+
+		@echo ---- Board ----
+		@echo 'Name		$(call PARSE_BOARD,$(BOARD_TAG),name)'
+		@echo 'Frequency		'$(F_CPU)
+		@echo 'MCU			'$(MCU)
+
+		@echo ---- Ports ----
+		@echo 'Uploader		'$(UPLOADER)
+
+ifeq ($(UPLOADER),avrdude)
+		@echo 'AVRdude    	'$(AVRDUDE_PORT)
+endif
+
+		@echo 'Serial   	  	'$(SERIAL_PORT)
+		@echo ---- Libraries ----
+		@echo . Core libraries
+		@echo $(CORE_LIBS_LIST)
+
+ifneq ($(BUILD_CORE_LIBS_LIST),)
+		@echo $(BUILD_CORE_LIBS_LIST)
+endif
+
+		@echo . Application libraries of Arduino/chipKIT/Energia/Maple/Teensy/Wiring
+		@echo $(APP_LIBS_LIST)
+		@echo . User libraries from $(SKETCHBOOK_DIR)
+		@echo $(USER_LIBS_LIST)
+
+		@echo ==== Info done ====
+endif
+endif
+
 
 
 # Doxygen
@@ -560,36 +591,25 @@ ifeq ($(MAKECMDGOALS),document)
 endif
 
 
-ifneq ($(MAKECMDGOALS),boards)
-    ifneq ($(MAKECMDGOALS),clean)
-        $(info  ==== info done ====)
-    endif
-endif
-
-
-
 # Rules
 # ----------------------------------
 #
-all: 		message_all clean compile reset raw_upload serial
-		@echo "==== all done ==== "
+all: 		info message_all clean compile reset raw_upload serial
+		@echo "==== All done ==== "
 
 
-build: 		message_build clean compile
-		@echo "==== build done ==== "
+build: 		info message_build clean compile
+		@echo "==== Build done ==== "
 
 
-make:		message_make changed compile
-		@echo "==== make done ==== "
+make:		info message_make changed compile
+		@echo "==== Make done ==== "
 
-compile:	message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
+compile:	info message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
 		@echo $(BOARD_TAG) > $(NEW_TAG)
        
-info:
-		@echo "---- info ---- "
-
 $(OBJDIR):
-		@echo "---- build * ---- "
+		@echo "---- Build * ---- "
 		@mkdir $(OBJDIR)
 
 #$(TARGET_ELF): 	$(OBJS)
@@ -610,7 +630,7 @@ upload:		message_upload reset raw_upload
 
 
 reset:
-		@echo "---- reset ---- "
+		@echo "---- Reset ---- "
 		-screen -X kill
 		sleep 1
 ifeq ($(UPLOADER),dfu-util)
@@ -646,7 +666,7 @@ endif
 
 
 raw_upload:
-		@echo "---- upload ---- "
+		@echo "---- Upload ---- "
 ifeq ($(UPLOADER),avrdude)
 		$(call SHOW,"9.1-UPLOAD",$(UPLOADER))
 		$(call TRACE,"9-UPLOAD",$(UPLOADER))
@@ -680,7 +700,7 @@ endif
 
 
 ispload:	$(TARGET_HEX)
-		@echo "---- ispload ---- "
+		@echo "---- ISP upload ---- "
 ifeq ($(UPLOADER),avrdude)
 		$(AVRDUDE) $(AVRDUDE_COM_OPTS) $(AVRDUDE_ISP_OPTS) -e \
 			-U lock:w:$(ISP_LOCK_FUSE_PRE):m \
@@ -694,7 +714,7 @@ ifeq ($(UPLOADER),avrdude)
 endif
 
 serial:		reset
-		@echo "---- serial ---- "
+		@echo "---- Serial ---- "
 		osascript -e 'tell application "Terminal" to do script "$(SERIAL_COMMAND) $(SERIAL_PORT) $(SERIAL_BAUDRATE)"'
 		
 #		echo "$@"
@@ -706,7 +726,7 @@ serial:		reset
 #		open /tmp/arduino.command
 
 size:
-		@echo "---- size ---- "
+		@echo "---- Size ---- "
 		@if [ -f $(TARGET_HEX) ]; then echo 'Binary sketch size: ' $(shell $(HEXSIZE)) $(BYTES); echo; fi
 #		@if [ -f $(TARGET_ELF) ]; then $(ELFSIZE); echo; fi
 		@if [ -f $(TARGET_BIN) ]; then echo 'Binary sketch size:' $(shell $(BINSIZE)) $(BYTES); echo; fi
@@ -714,11 +734,11 @@ size:
 clean:
 		@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
 		@echo "nil" > $(OBJDIR)/nil
-		@echo "---- clean ---- "
+		@echo "---- Clean ---- "
 		-@rm -r $(OBJDIR)/* # */ 
 
 changed:
-		@echo "---- clean changed ---- "
+		@echo "---- Clean changed ---- "
 ifeq ($(CHANGE_FLAG),1)
 		-$(REMOVE) $(OBJDIR)
 else
@@ -729,38 +749,49 @@ endif
 #		if [ $(CHANGE_FLAG) == 1 ]; then -$(REMOVE) $(OBJDIR)/*; fi;
 
 depends:	$(DEPS)
-		@echo "---- depends ---- "
+		@echo "---- Depends ---- "
 		@cat $(DEPS) > $(DEP_FILE)
 
 boards:
-		@echo "==== boards ===="
-		@if [ -f $(ARDUINO_PATH)/hardware/arduino/boards.txt ]; then echo "---- $(ARDUINO_APP) ---- "; grep .name $(ARDUINO_PATH)/hardware/arduino/boards.txt; echo; fi
-		@if [ -d $(ARDUINO_PATH)/hardware/arduino/sam ]; then echo "---- $(ARDUINO_APP) SAM ---- "; grep .name $(ARDUINO_PATH)/hardware/arduino/sam/boards.txt; echo; fi
-		@if [ -d $(ARDUINO_PATH)/hardware/arduino/avr ]; then echo "---- $(ARDUINO_APP) AVR ---- "; grep .name $(ARDUINO_PATH)/hardware/arduino/avr/boards.txt; echo; fi
-		@if [ -d $(MPIDE_APP) ];   then echo "---- $(MPIDE_APP) ---- ";   grep .name $(MPIDE_PATH)/hardware/pic32/boards.txt;     echo; fi
-		@if [ -d $(WIRING_APP) ];  then echo "---- $(WIRING_APP) ---- ";  grep .name $(WIRING_PATH)/hardware/Wiring/boards.txt;   echo; fi
-		@if [ -d $(ENERGIA_APP) ]; then echo "---- $(ENERGIA_APP) ---- "; grep .name $(ENERGIA_PATH)/hardware/msp430/boards.txt;  echo; fi
-		@if [ -d $(MAPLE_APP) ];   then echo "---- $(MAPLE_APP) ---- ";   grep .name $(MAPLE_PATH)/hardware/leaflabs/boards.txt;  echo; fi
-		@if [ -d $(TEENSY_APP) ];  then echo "---- $(TEENSY_APP) ---- ";  grep .name $(TEENSY_PATH)/hardware/teensy/boards.txt;    echo; fi
-		@echo "==== boards done ==== "
+		@echo "==== Boards ===="
+		@echo "Tag=Name"
+		@if [ -f $(ARDUINO_PATH)/hardware/arduino/boards.txt ]; then echo "---- $(notdir $(basename $(ARDUINO_APP))) ---- "; \
+			grep .name $(ARDUINO_PATH)/hardware/arduino/boards.txt; echo; fi
+		@if [ -d $(ARDUINO_PATH)/hardware/arduino/sam ]; then echo "---- $(notdir $(basename $(ARDUINO_APP))) SAM ---- "; \
+			grep .name $(ARDUINO_PATH)/hardware/arduino/sam/boards.txt; echo; fi
+		@if [ -d $(ARDUINO_PATH)/hardware/arduino/avr ]; then echo "---- $(notdir $(basename $(ARDUINO_APP))) AVR ---- "; \
+			grep .name $(ARDUINO_PATH)/hardware/arduino/avr/boards.txt; echo; fi
+		@if [ -d $(MPIDE_APP) ];   then echo "---- $(notdir $(basename $(MPIDE_APP))) ---- ";   \
+			grep .name $(MPIDE_PATH)/hardware/pic32/boards.txt;     echo; fi
+		@if [ -d $(ENERGIA_APP) ]; then echo "---- $(notdir $(basename $(ENERGIA_APP))) MSP430 ---- "; \
+			grep .name $(ENERGIA_PATH)/hardware/msp430/boards.txt;  echo; fi
+		@if [ -d $(ENERGIA_PATH)/hardware/lm4f ]; then echo "---- $(notdir $(basename $(ENERGIA_APP))) LM4F ---- ";  \
+			grep .name $(ENERGIA_PATH)/hardware/lm4f/boards.txt;  echo; fi
+		@if [ -d $(MAPLE_APP) ];   then echo "---- $(notdir $(basename $(MAPLE_APP))) ---- ";    \
+			grep .name $(MAPLE_PATH)/hardware/leaflabs/boards.txt;  echo; fi
+		@if [ -d $(TEENSY_APP) ];  then echo "---- $(notdir $(basename $(TEENSY_APP))) ---- ";   \
+			grep .name $(TEENSY_PATH)/hardware/teensy/boards.txt | grep -v menu;    echo; fi
+		@if [ -d $(WIRING_APP) ];  then echo "---- $(notdir $(basename $(WIRING_APP))) ---- ";  \
+			grep .name $(WIRING_PATH)/hardware/Wiring/boards.txt;   echo; fi
+		@echo "==== Boards done ==== "
 
 message_all:
-		@echo "==== all ===="
+		@echo "==== All ===="
 
 message_make:
-		@echo "==== make ===="
+		@echo "==== Make ===="
 
 message_build:
-		@echo "==== build ===="
+		@echo "==== Build ===="
 
 message_compile:
-		@echo "---- compile ----"
+		@echo "---- Compile ----"
 
 message_upload:
-		@echo "==== upload ===="
+		@echo "==== Upload ===="
 
 message_document:
-		@echo "==== document ===="
+		@echo "==== Document ===="
 
 
                 
