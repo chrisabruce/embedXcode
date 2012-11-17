@@ -427,6 +427,7 @@ ifeq ($(BUILD_CORE),sam)
 # Builds/syscalls_sam3.c.o needs to be mentioned again
 		$(CXX) $(LDFLAGS) -o $@ -L$(OBJDIR) -Wl,--start-group Builds/syscalls_sam3.o $(SYSTEM_OBJS) $(LOCAL_OBJS) $(TARGET_A) -Wl,--end-group
 else ifeq ($(VARIANT),stellarpad)
+# -lc -lm -lgcc need to be at the end of the sentence
 		$(CXX) $(LDFLAGS) -o $@ $(SYSTEM_OBJS) $(LOCAL_OBJS) $(TARGET_A) -L$(OBJDIR) -lc -lm -lgcc
 else ifeq ($(PLATFORM),MapleIDE)
 		$(CXX) $(LDFLAGS) -o $@ $(LOCAL_OBJS) $(TARGET_A) -L$(OBJDIR)
@@ -514,7 +515,7 @@ info:
 
 ifneq ($(MAKECMDGOALS),boards)
 ifneq ($(MAKECMDGOALS),clean)
-		@cat $(CURDIR)/About/About.txt
+		@if [ -f $(CURDIR)/About/About.txt ]; then $(CAT) $(CURDIR)/About/About.txt; fi;
 
 		@echo ==== Info ====
 		@echo ---- Project ----
@@ -597,6 +598,8 @@ endif
 all: 		info message_all clean compile reset raw_upload serial
 		@echo "==== All done ==== "
 
+fast: 		info message_fast changed compile reset raw_upload serial
+		@echo "==== Fast done ==== "
 
 build: 		info message_build clean compile
 		@echo "==== Build done ==== "
@@ -740,7 +743,9 @@ clean:
 changed:
 		@echo "---- Clean changed ---- "
 ifeq ($(CHANGE_FLAG),1)
-		-$(REMOVE) $(OBJDIR)
+		@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
+		@echo "nil" > $(OBJDIR)/nil
+		-$(REMOVE) $(OBJDIR)/* # */
 else
 		-$(REMOVE) $(LOCAL_OBJS)
 endif
@@ -777,6 +782,9 @@ boards:
 
 message_all:
 		@echo "==== All ===="
+
+message_fast:
+		@echo "==== Fast ===="
 
 message_make:
 		@echo "==== Make ===="

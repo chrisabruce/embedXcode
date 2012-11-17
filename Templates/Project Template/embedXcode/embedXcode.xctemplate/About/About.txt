@@ -9,5 +9,5 @@
 	http://embedXcode.weebly.com/
 	
 	
+embedXcode • Nov 17, 2012 release 22 • New Make and Fast optimised targets
 
-	

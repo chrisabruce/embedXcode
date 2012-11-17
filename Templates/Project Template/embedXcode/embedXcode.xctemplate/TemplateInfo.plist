@@ -12151,6 +12151,27 @@
 		</dict>
 		<dict>
 			<key>Name</key>
+			<string>Fast</string>
+			<key>BuildToolPath</key>
+			<string>make</string>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>BuildToolArgsString</key>
+			<string>fast -C $(PROJECT)</string>
+			<key>CustomBuildSettings</key>
+			<dict>
+				<key>BuildToolDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildWorkingDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildToolWorkingDirectory</key>
+				<string>$(PROJECT)</string>
+				<key>BuildToolWorkingDir</key>
+				<string>$(PROJECT)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Name</key>
 			<string>Make</string>
 			<key>TargetType</key>
 			<string>Legacy</string>
