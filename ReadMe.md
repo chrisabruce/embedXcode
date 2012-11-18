@@ -18,11 +18,9 @@
 
 ## Links
 
-[Website](http://embedXcode.weebly.com/)
-
-[Package download](http://embedXcode.weebly.com/download.html)
-
-[User Manual](http://embedXcode.weebly.com/tutorial.html)
+* [Website](http://embedXcode.weebly.com/)
+* [Package download](http://embedXcode.weebly.com/download.html)
+* [User Manual](http://embedXcode.weebly.com/tutorial.html)
     
 
 ## Installation
