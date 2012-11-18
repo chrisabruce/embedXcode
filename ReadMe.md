@@ -1,5 +1,5 @@
 # embedXcode
-*Embedded Computing Template for Xcode 4*
+*Embedded Computing with Xcode 4*
 
 © Rei VILO, 2010-2012
 
