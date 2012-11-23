@@ -97,10 +97,10 @@ endif
 
 ifndef APP_LIB_OBJS
     FLAG = 1
-    APP_LIB_CPP_SRC   = $(wildcard $(patsubst %,%/*.cpp,$(APP_LIBS))) # */
     APP_LIB_C_SRC     = $(wildcard $(patsubst %,%/*.c,$(APP_LIBS))) # */
-    APP_LIB_OBJS      = $(patsubst $(APP_LIB_PATH)/%.cpp,$(OBJDIR)/libs/%.o,$(APP_LIB_CPP_SRC))
-    APP_LIB_OBJS     += $(patsubst $(APP_LIB_PATH)/%.c,$(OBJDIR)/libs/%.o,$(APP_LIB_C_SRC))
+    APP_LIB_CPP_SRC   = $(wildcard $(patsubst %,%/*.cpp,$(APP_LIBS))) # */
+    APP_LIB_OBJS      = $(patsubst $(APP_LIB_PATH)/%.c,$(OBJDIR)/libs/%.o,$(APP_LIB_C_SRC))
+    APP_LIB_OBJS     += $(patsubst $(APP_LIB_PATH)/%.cpp,$(OBJDIR)/libs/%.o,$(APP_LIB_CPP_SRC))
 else
     FLAG = 0
 endif 
@@ -197,7 +197,7 @@ DEP_FILE   = $(OBJDIR)/depends.mk
 
 # Executables
 #
-REMOVE  = rm -r
+REMOVE  = -rm -r
 MV      = mv -f
 CAT     = cat
 ECHO    = echo
@@ -258,13 +258,13 @@ endif
 
 # 2- APPlication Arduino/chipKIT/Energia/Maple/Teensy/Wiring library sources
 #
-$(OBJDIR)/libs/%.o: $(APP_LIB_PATH)/%.cpp
+$(OBJDIR)/libs/%.o: $(APP_LIB_PATH)/%.c
 	$(call SHOW,"2.1-APP",$@,$<)
 	$(call TRACE,"2-APP",$@,$<)
 	@mkdir -p $(dir $@)
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
-    
-$(OBJDIR)/libs/%.o: $(APP_LIB_PATH)/%.c
+
+$(OBJDIR)/libs/%.o: $(APP_LIB_PATH)/%.cpp
 	$(call SHOW,"2.2-APP",$@,$<)
 	$(call TRACE,"2-APP",$@,$<)
 	@mkdir -p $(dir $@)
@@ -544,11 +544,11 @@ ifneq ($(VARIANT),)
 		@echo 'Variant		'$(VARIANT)
 endif
 
-ifneq ($(USB_PID),)
+ifneq ($(USB_VID),)
 		@echo 'USB VID		'$(USB_VID)
 endif
 
-ifneq ($(USB_VID),)
+ifneq ($(USB_PID),)
 		@echo 'USB PID		'$(USB_PID)
 endif
 
@@ -737,21 +737,21 @@ size:
 clean:
 		@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
 		@echo "nil" > $(OBJDIR)/nil
-		@echo "---- Clean ---- "
+		@echo "---- Clean ----"
 		-@rm -r $(OBJDIR)/* # */ 
 
 changed:
-		@echo "---- Clean changed ---- "
+		@echo "---- Clean changed ----"
 ifeq ($(CHANGE_FLAG),1)
 		@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
 		@echo "nil" > $(OBJDIR)/nil
-		-$(REMOVE) $(OBJDIR)/* # */
+		$(REMOVE) $(OBJDIR)/* # */
 else
-		-$(REMOVE) $(LOCAL_OBJS)
+		$(REMOVE) $(LOCAL_OBJS)
 endif
 
 #@echo "---- changed ---- "
-#		if [ $(CHANGE_FLAG) == 1 ]; then -$(REMOVE) $(OBJDIR)/*; fi;
+#		if [ $(CHANGE_FLAG) == 1 ]; then $(REMOVE) $(OBJDIR)/*; fi;
 
 depends:	$(DEPS)
 		@echo "---- Depends ---- "

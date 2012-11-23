@@ -65,7 +65,7 @@ VARIANT_PATH = $(APPLICATION_PATH)/hardware/arduino/variants/$(VARIANT)
 
 MCU_FLAG_NAME  = mmcu
 EXTRA_LDFLAGS  = 
-EXTRA_CPPFLAGS = -I$(VARIANT_PATH) -D$(PLATFORM_TAG)
+EXTRA_CPPFLAGS = -MMD -I$(VARIANT_PATH) -D$(PLATFORM_TAG)
 
 # Leonardo USB PID VID
 #
@@ -74,11 +74,19 @@ USB_VID   := $(call PARSE_BOARD,$(BOARD_TAG),build.vid)
 USB_PID   := $(call PARSE_BOARD,$(BOARD_TAG),build.pid)
 
 ifneq ($(USB_PID),)
-ifneq ($(USB_VID),)
-    USB_FLAGS  = -DUSB_VID=$(USB_VID)
     USB_FLAGS += -DUSB_PID=$(USB_PID)
+else
+    USB_FLAGS += -DUSB_PID=null
 endif
+
+ifneq ($(USB_VID),)
+    USB_FLAGS += -DUSB_VID=$(USB_VID)
+else
+    USB_FLAGS += -DUSB_VID=null
 endif
+
+
+
 
 # Serial 1200 reset
 #

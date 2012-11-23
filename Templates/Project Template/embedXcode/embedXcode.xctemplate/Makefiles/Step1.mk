@@ -153,10 +153,10 @@ ifneq ($(MAKECMDGOALS),boards)
     ifneq ($(MAKECMDGOALS),clean)
         ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(ARDUINO_PATH)/hardware/arduino/boards.txt),)
             include $(MAKEFILE_PATH)/Arduino.mk
-        else ifneq ($(shell grep ^$(BOARD_TAG).name $(ARDUINO_PATH)/hardware/arduino/avr/boards.txt),)
+        else ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(ARDUINO_PATH)/hardware/arduino/avr/boards.txt),)
             include $(MAKEFILE_PATH)/Arduino15avr.mk
-        else ifneq ($(shell grep ^$(BOARD_TAG).name $(ARDUINO_PATH)/hardware/arduino/sam/boards.txt),)
-            include $(MAKEFILE_PATH)/Arduino15sam.mk
+        else ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(ARDUINO_PATH)/hardware/arduino/sam/boards.txt),)
+            include $(MAKEFILE_PATH)/Arduino15avr.mk
         else ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(ARDUINO_PATH)/hardware/arduino/boards.txt),)
             include $(MAKEFILE_PATH)/Arduino.mk
         else ifneq ($(shell grep ^$(BOARD_TAG).name $(MPIDE_PATH)/hardware/pic32/boards.txt),)
@@ -178,23 +178,11 @@ ifneq ($(MAKECMDGOALS),boards)
 endif
 
 
-# Warnings
-#
-#ifeq ($(BOARD_TAG),arduino_due_x)
-#    $(warning *** Arduino 1.5 IDE in development)
-#    $(warning *** Uploader bossac not tested)
-#else ifeq ($(BOARD_TAG),lplm4f120h5qr)
-#    $(warning *** Support for StellarPad by Energia in development)
-#else ifeq ($(BOARD_TAG),teensy2)
-#    $(warning *** Upload to teensy2 not tested)
-#endif
-
-
-
 # List of sub-paths to be excluded
 #
 EXCLUDE_NAMES  = Example example Examples examples Archive archive Archives archives Documentation documentation Reference reference
 EXCLUDE_NAMES += ArduinoTestSuite OneWire
+EXCLUDE_NAMES += $(EXCLUDE_LIBS)
 EXCLUDE_LIST   = $(addprefix %,$(EXCLUDE_NAMES))
 
 # Step 2

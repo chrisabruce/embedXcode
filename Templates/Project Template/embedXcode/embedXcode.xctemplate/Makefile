@@ -46,6 +46,11 @@
 #
 APP_LIBS_LIST =
 
+# List the libraries to be excluded
+# For example, WiFi may crash on Arduino 1.0.2
+#
+EXCLUDE_LIBS = WiFi
+
 # List users libraries here 
 #
 USER_LIBS_LIST =

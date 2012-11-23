@@ -9,5 +9,6 @@
 	http://embedXcode.weebly.com/
 	
 	
-embedXcode • Nov 17, 2012 release 22 • New Make and Fast optimised targets
+embedXcode • Nov 24, 2012 release 23 • Fixed WiFi issue on Arduino 1.0.2 and 1.5.x	
+User Manual • Nov 24, 2012 release 17 • New section Dealing with Issues
 

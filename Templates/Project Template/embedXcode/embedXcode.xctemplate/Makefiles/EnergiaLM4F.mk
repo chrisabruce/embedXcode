@@ -92,7 +92,7 @@ EXTRA_LDFLAGS   = -T$(CORE_LIB_PATH)/$(LDSCRIPT) -Wl,--gc-sections -Wl,-Map=$(OB
 EXTRA_LDFLAGS  += -mthumb --entry=ResetISR
 EXTRA_LDFLAGS  += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant -nostdlib
 
-EXTRA_CPPFLAGS  = $(addprefix -D, $(PLATFORM_TAG)) -D__LM4F120H5QR__ -I$(VARIANT_PATH)
+EXTRA_CPPFLAGS  = $(addprefix -D, $(PLATFORM_TAG)) -D__LM4F120H5QR__ -Dgcc -I$(VARIANT_PATH)
 EXTRA_CPPFLAGS += -fno-exceptions -fno-rtti -mthumb
 EXTRA_CPPFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant
 
