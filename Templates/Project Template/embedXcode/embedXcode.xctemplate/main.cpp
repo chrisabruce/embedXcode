@@ -33,7 +33,7 @@
   #include "driverlib/rom.h"
   #include "driverlib/sysctl.h"
   #endif
-#elif defined(MAPLEIDE) // Maple specific
+#elif defined(MAPLE_IDE) // Maple specific
 #include "WProgram.h"
 #elif defined(CORE_TEENSY) // Teensy specific
 #include "WProgram.h"
@@ -50,6 +50,13 @@
 // Sketch
 #include "___PROJECTNAMEASIDENTIFIER___.___VARIABLE_ExtensionConfigName:identifier___"
 
+#if defined(MAPLE_IDE) // Maple specific
+// Force init to be called *first*, i.e. before static object allocation.
+// Otherwise, statically allocated objects that need libmaple may fail.
+__attribute__(( constructor )) void premain() {
+    init();
+}
+#endif
 
 // Main
 int main(void) {

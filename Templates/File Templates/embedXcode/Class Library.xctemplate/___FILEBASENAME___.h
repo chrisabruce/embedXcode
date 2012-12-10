@@ -23,7 +23,7 @@
 #include "WProgram.h"
 #elif defined(ENERGIA) // LaunchPad, FraunchPad and StellarPad specific
 #include "Energia.h"
-#elif defined(MAPLEIDE) // Maple specific
+#elif defined(MAPLE_IDE) // Maple specific
 #include "WProgram.h"
 #elif defined(CORE_TEENSY) // Teensy specific
 #include "WProgram.h"
